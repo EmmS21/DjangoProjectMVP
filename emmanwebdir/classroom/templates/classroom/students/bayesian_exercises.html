@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bayesian Theory Exercises</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'second/css/app/quiz_control.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="{% static 'second/js/app/quiz_control_bayesian.js' %}" defer></script>
+</head>
+<<div id='strand'>
+	<div id='profile'>
+		</br>
+		<div id='tokens'>Welcome {{ user.first_name }} <span id='money'></span>{{ user.last_name }}</div>
+		<div></br></br></div>
+		<p><i>This quiz is not graded, this is just to help you practise what you have just learnt. Calculate the answers for each questions, better yet, do it in Python!</i></p>
+		<p>Bayesian Theory</p>
+	</div>
+	<div id='quiz'>
+		<div id='question'>
+		<div id='question-text'>
+			<h1></h1>
+			<p></p>
+		</div>
+		<div id='question-options'>
+			<div class='option' id='opt0' data-r=''></div>
+			<div class='option' id='opt1' data-r=''></div>
+			<div class='option' id='opt2' data-r=''></div>
+			<div class='option' id='opt3' data-r=''></div>
+		</div>
+		<div class='btn-wrapper'>
+			<div class='submit btn'>Submit</div>
+			<div class='hint btn'></div>
+			<div class='feedback btn'>Feedback</div>
+			<div class='nextQ btn'>Next</div>
+		</div>
+		<div class='feedbackTxt'>
+			<div id='hint' class='hide'></div>
+			<div id='feedback'></div>
+		</div>
+	</div>
+	</div>
+</div>
+	<a href="{% url 'students:bayesian_theory' %}#one" class="btn2" style="position:relative; bottom:0; right:0; text-decoration: none">Back to Notes</a>
+</html>

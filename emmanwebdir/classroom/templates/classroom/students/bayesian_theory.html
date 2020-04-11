@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}" defer></script>
+</head>
+</br>
+<div data-scroll-watch><center><img src="{% static 'third/img/logo.png' %}" width="50%"></center></br></br>We have reproduced these notes from the books: <b><i>Think Stats: Probability and Statistics for Programmers</i></b> and <b><i>OpenIntro Statistics</i></b>. We have added some annotations to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></br></br></br></br>
+</br></br><div data-scroll-watch> Bayes’s theorem</div></br></br>
+</br></br><div data-scroll-watch>We dealt briefly with Bayesianism but have you heard of Bayes’s theorem? Well this theory is fundamental to Bayesian statistics.
+ Simply put, Bayes theorem allows you to reverse a conditional probability.</div></br></br>
+</br></br><div data-scroll-watch>Ok, let’s start off by creating a scenario. Let’s assume you live in Johannesburg and you know that; 1% of the population has tested positive for COVID-19. In 80% of the instances COVID-19 test kits accurately detect the virus when it is there and 20% miss it.
+ 9.6% of the time the tests detect COVID-19 when it is not there, therefore 90.4% correctly return a negative result. Let’s suppose you are tested for COVID-19 and get a positive test result. What are the chances you actually have COVID-19.</div></br></br>
+</br></br><div data-scroll-watch>We would need to factor in both the accuracy of the test kit and the percentage of people who are tested positive in Johannesburg.
+ To give you better intuition around this concept, here is a Bayes Theorem calculator. Play around with it to answer this question.</div></br></br>
+</br></br><div data-scroll-watch><iframe src="https://instacalc.com/52323/embed" width="450" height="350" frameborder="0"></iframe></div></br></br>
+</br></br><div data-scroll-watch>Ok, let’s break this down further, let’s assume you want to find the probability that two events occur. Let’s call these A and B. If you remember from previous notes, assuming A and B are independent events, then the probability that A and would both occur would be:</div></br></br>
+</br></br><div data-scroll-watch><b>P(A)P(B)</b></div></br></br>
+</br></br><div data-scroll-watch>Now imagine that A and B are related events, the probability that A and B both occur becomes:</div></br></br>
+</br></br><div data-scroll-watch><b>P(A)P(B|A)</b></div></br></br>
+</br></br><div data-scroll-watch>Meaning that the probability that A and B both occur is the probability that A occurs multiplied by the probability that B occurs given that you know A has occurred. Translating to:</div></br></br>
+</br></br><div data-scroll-watch><b>P(B)P(A|B) = P(A)P(B|A)</b></div></br></br>
+</br></br><div data-scroll-watch>Now let’s combine all this to get Bayes Theorem:</div></br></br>
+</br></br><div data-scroll-watch><b>P(A|B) = ( P(A)P(B|A) )/ P(B)</b></div></br></br>
+</br></br><div data-scroll-watch>Where <b>P(A|B)</b> is the posterior, <b>P(A)</b> is the prior, <b>P(B|A)</b> is the likelihood, <b>P(B)</b> is the normalizing constant.
+ This constant ensures that the probability is valued between 0 and 1, you do not need this if you are only interested in the likelihood of a result.</div></br></br>
+</br></br><div data-scroll-watch>You can think of the prior as the prior probability of an event occurring before the collection of new data and posterior probability as the revised or updated probability of an event occuring after taking into consideration new data or information we collect.</div></br></br>
+</br></br><div data-scroll-watch>Let’s look at an example to understand this better. Pretend you have two jars of cookies</div></br></br>
+</br></br><div data-scroll-watch><img src="{% static 'second/images/learningmaterial/cookiemonster.jpg' %}"></div></br></br>
+</br></br><div data-scroll-watch>There are 10 chocolate chip cookies and 30 sugar cookies in <b>Jar A</b>.
+ <b>Jar B</b> contains 20 chocolate chip cookies and 20 sugar cookies. Your friend, who is obviously trying your patience, takes a sugar cookie from one of the jars.
+ Now if you want to find out which jar your friend most likely took the cookie from, you could say that it is more likely she took a cookie from <b>Jar A</b> since it contains a greater proportion of sugar cookies than <b>Jar B</b>.</div></br></br>
+</br></br><div data-scroll-watch>Ok, time to define our problem more formally. We have <b>Hypothesis 1</b>. This is that your friend took the cookie from Jar A and <b>Hypothesis 2</b>, that your friend took the cookie from Jar B.</div></br></br>
+</br></br><div data-scroll-watch>Our prior probabilities are <b>P(H1) = P(H2) = 0.5</b>. Since your friend randomly selected the jar to pick a cookie from, both are equally likely.</div></br></br>
+</br></br><div data-scroll-watch>However, remember that your friend took a sugar cookie, and there are a greater amount of sugar cookies in Jar A, therefore our likelihood of picking from Jar A is <b>P(E|H1) = 0.75</b>. This is because Jar A contains ¾ sugar cookies and ¼ chocolate chip cookies.</div></br></br>
+</br></br><div data-scroll-watch>The probability of taking a sugar cookie from Jar B is <b>P(E|H2) = 0.5</b>. This is because Jar B contains ½ sugar cookies and ½ chocolate chip cookies.</div></br></br>
+</br></br><div data-scroll-watch>Now let’s think about the probability of taking a sugar cookie under any circumstances. This would be <b>P(E) = 0.625</b>.
+ This is because we have 80 cookies contained in both jars, 50 are sugar cookies.</div></br></br>
+</br></br><div data-scroll-watch>Now let’s calculate the probability that your cookie stealing friend took the cookie from Jar A.</div></br></br>
+</br></br><div data-scroll-watch><b>P(H1 | E ) = ( P(H1)P(E|H1) )/ P(E) = (0.5 * 0.75)/ 0.625 = 0.6</b></div></br></br>
+</br></br><div data-scroll-watch><a href="{% url 'students:bayesian_exercises' %}" class="btn btn-primary btn-lg">Ready to try a few exercises?</div></br></br>
+</br></br><div data-scroll-watch><a id="one"></a></div></br></br>
+</br></br><div data-scroll-watch><h3><a href="{% url 'students:bayesian_theory' %}" class="btn btn-primary btn-lg btn-block">Let's move on Inferential Statistics</a></h3></div></br></br>
+</html>

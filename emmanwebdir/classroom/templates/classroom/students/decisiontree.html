@@ -1,0 +1,125 @@
+{% load static %}
+
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+    <meta name="description" content="An almost minimal diagram using a very simple node template and the default link template." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/gojs/release/go-debug.js"></script>
+    <script src="{% static 'fifth/js/vendor/decision_tree.js' %}"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="apple-touch-icon" href="{% static 'fifth/apple-touch-icon.png' %}">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="{% static 'fifth/css/style.css' %}">
+    <script src="{% static 'fifth/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+<body onload="init()">
+		<div class="wrapAll clearfix">
+			<div class="sidebar">
+				<div class="navigation">
+					<ul>
+						<li><a href="#">Return to your profile</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Post a question on Slack</a></li>
+					</ul>
+					<h3>Feedback</h3>
+					<ul>
+						<li><a href="#">Post your feedback regarding this content</a></li>
+					</ul>
+				</div>
+
+
+			</div>
+			<div class="mainsection">
+				<div class="headerLinks">
+					<span class="user">{{ user.first_name }}</span>
+				</div>
+				<div class="tabs clearfix">
+					<div class="tabsLeft">
+						<ul>
+							<li><a href="#" class="active">Decision Trees - Building an intuitive understanding</a></li>
+							<!--<li><a href="#">Talk</a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="article">
+                    <center><img class="logoimage" src="{% static 'fifth/img/gradientboost.png' %}"/></center>
+					<h1>Gradient Boost Decision Trees Study Guide</h1>
+					<p id="background" class="siteSub"><strong>Building an intuitive understanding of Decision Trees</strong></p>
+					<div class="contentsPanel">
+						<div class="contentsHeader">Content</div>
+						<ul>
+							<li>
+								<span>1</span><a>Introduction: What is Machine Learning</a>
+								<ul>
+									<li><span>1.1</span><a href="#background">Background</a> </li>
+									<li><span>1.2</span><a href="#practical">Practical Scenario</a> </li>
+									<li><span>1.3</span><a href="#usecases">Machine Learning use cases</a></li>
+									<li><span>1.4</span><a href="#superun">Supervised versus Unsupervised Learning</a></li>
+									<li><span>1.5</span><a href="#batchonline">Batch versus Online Learning</a></li>
+									<li><span>1.6</span><a href="#instance">Instance based versus Model based learning</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h2 id="practical">Background</h2>
+                    <p>‘Decision trees are versatile Machine Learning algorithms that can perform both classification and regression tasks and even multi-output tasks.’ Ok, but what does this mean?</p>
+                    <p>Well, a decision tree can be thought of as a bunch of if-else statements in a tree structure. With each if statement you a branch is chosen (ie true or false), this process continues until you end up with your answer or terminate the tree building process at some predefined point.</p>
+                    <p>Decision Trees can be used for both classification and regression problems.</p>
+                    <h2>Decision Tree in Action</h2>
+                    <br>
+                    <p>Here is an interactive example of a decision tree adapted from Go.Js. This process will give your your MTBI personality type based on your sequence of responses.</p>
+                    <center><div id="sample">
+                        <div id="myDiagramDiv" style="border: solid 1px black; width:600px; height:400px"></div>
+                    </div></center>
+                    <p>As you can see from the example. The way decision trees work is very intuitive, each time you select a node or, one of the potential answers in our decision tree branches are created with additional options dependent on the node selected. This process continues until we reach an end-point, which in this case is an answer. The final answer is dependent on the sequence of nodes you selected.</p>
+                    <p>The actual splitting of nodes can be done using different algorithms. These include: ID3, <a class="tooltip" data-title="C4.5 is the successor to ID3 and removed the restriction that features must be categorical by dynamically defining a discrete attribute (based on numerical variables) that partitions the continuous attribute value into a discrete set of intervals. C4.5 converts the trained trees (i.e. the output of the ID3 algorithm) into sets of if-then rules. This accuracy of each rule is then evaluated to determine the order in which they should be applied. Pruning is done by removing a rule’s precondition if the accuracy of the rule improves without it">C4.5</a>,CART (Classification and Regression Tree),<a class="tooltip" data-title="CHAID analysis builds a predictive medel, or tree, to help determine how variables best merge to explain the outcome in the given dependent variable. In  CHAID analysis, nominal, ordinal, and continuous data can be used, where continuous predictors are split into categories with approximately equal number of observations.  CHAID creates all possible cross tabulations for each categorical predictor until the best outcome is achieved and no further splitting can be performed.">CHAID (Chi-square automatic interaction detection Performs multi-level splits when computing classification trees and MARS)</a>.</p>
+                    <p>The most typically used algorithm is ID3. However, Sci-Kit learn uses the CART algorithm by default (this algorithm will be explained in the notebook).</p>
+
+                    <h2>ID3</h2></br>
+                    <p>In order to understand how the ID3 algorithm works we need to understand 2 mathematical concepts; Entropy and Information Gain.</p>
+                    <p>Entropy refers to a theorem typically used in information theory to measure the importance of information relative to its size, or ‘the impurity of an arbitrary collection of examples’, We use entropy to measure the level of randomness or unpredictability. For example assume we toss a coin, this is a binary event with two possible outcomes; heads or tails.</p>
+                    <p>Suppose in our example we toss our coin 6  times and the output of these tosses comes out as {Head,Head,Tail,Tail,Head,Tail}. Your initial guess of the outcomes would probably have been a 50/50 split between both head and tail.</p>
+                    <h2>Understanding the intuition behind entropy</h2>
+                    <p>However, you cannot be sure because assuming this game has not been rigged, each coin toss is a random event. If the game was rigged on the other hand, the outputs would probably not be as random. Entropy, in this example, is highest when the chances of both outcomes happening are equally likely. So as probability approaches 0 or 1 entropy decreases.</p>
+                    <h4><strong>Additional Reading:</strong></h4>
+                    <a href ="https://stackoverflow.com/questions/1859554/what-is-entropy-and-information-gain">StackOverFlow - What is entropy and information gain</a>
+
+                    <h2>What about Information Gain</h2>
+                    <p>We can think of information gain as measuring how much information a feature gives us about the class. The ultimate objective in building a decision tree using ID3 is to find the attributes that return the highest information gain and smallest entropy. As information gain increase, entropy decreases. We will look at the mathematical formulas a bit more in our notebook.</p>
+                    <h2>Pruning our decision tree</h2>
+                    <p>One common problem we may encounter with decision trees, particularly in instances where we have a table with multiple columns is that they tend to fit a lot sometimes to the point of overfitting our data. This creates a scenario where the decision tree could give you a very high degree of accuracy on the training data but fail to generalize to our testing data. One way to counteract this overfitting is by pruning our decision trees.</p>
+                    <p><strong>What does pruning mean you may ask?</strong></p>
+                    <p>Pruning is simply the process of trimming some of the branches of our tree to prevent overfitting. However we would want to do this in such a manner as not to adversely affect the overall accuracy of our tree. Pruning also has the added benefit of reducing the overall complexity of our decision tree.</p>
+                    <h4><strong>Additional Reading:</strong></h4>
+                    <a href="https://www.cs.princeton.edu/courses/archive/spr07/cos424/papers/mitchell-dectrees.pdf">Decision Tree Learning - Princeton</a>
+                    <center><a href="{% url 'students:decision_tree_from_scratch' %}" class="btn btn-info btn-lg">Let’s jump to our Notebook</a></center>
+					<div class="lavenderBox">
+						<div class="header">Other Machine Learning Chapters</div>
+						<div class="subtitle linklist"><a href="#">The</a> <a href="#">Gradient</a> <a href="#">Boost</a> </div>
+						<div class="linklist">
+							<a href="{% url 'students:what_is_machine_learning' %}">What is Machine Learning</a>
+                            <a href="{% url 'students:linear_regression' %}">Linear Regression</a>
+                            <a href="{% url 'students:building_end_to_end' %}">End to End Machine Learning</a>
+                            <a href="#">Multiple Linear Regression</a>
+                            <a href="{% url 'students:log_reg' %}">Logistic Regression From Scratch</a>
+                            <a href="#">Yelp Regression Project</a>
+                            <a href="{% url 'students:k_nearest_practical' %}">K-Nearest Neighbours Practical</a>
+                            <a href="#">Decision Trees From Scratch</a>
+                            <a href="#">Clustering: K-Means</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"><\/script>')</script>
+        <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+
+
+
+

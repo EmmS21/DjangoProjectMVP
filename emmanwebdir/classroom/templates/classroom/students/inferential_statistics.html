@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}" defer></script>
+</head>
+</br>
+<div data-scroll-watch><center><img src="{% static 'third/img/logo.png' %}" width="50%"></center></br></br>We have reproduced these notes from the books: <b><i>Think Stats: Probability and Statistics for Programmers</i></b> and <b><i>OpenIntro Statistics</i></b>. We have added some annotations to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></br></br></br></br>
+</br></br><div data-scroll-watch>Inferential Statistics</div></br></br>
+</br></br><div data-scroll-watch>With inference in statistics we are primarily concerned with understanding and being able to quantify the uncertainty of parameter estimates.</div></br></br>
+</br></br><div data-scroll-watch>Here is an example to explain the usefulness of inferential statistics. Imagine a scenario where you are interested in finding out the average number of hours teenagers in South Africa spend playing Fortnite per day. Assume you know that teenagers in your city spend about 2 hours a day on average playing Fortnite. How would you go about estimating the average for the entire population.</div></br></br>
+</br></br><div data-scroll-watch>There are two ways you could go about doing this. You could create a survey and send it out to everyone who is between the ages of 13 and 19 in South Africa. You can probably see the limitations of this approach, resources and time are never an infinite resource. The second option would be to use the sample data we have from our city to get an estimate of the overall average.</div></br></br>
+</br></br><div data-scroll-watch>The second method is both more feasible and simpler to implement. This is where inferential statistics comes into play.</div></br></br>
+</br></br><div data-scroll-watch>With inferential statistics we try to make inferences about a population based on a sample.A population in this context refers to all teenagers in South Africa (all the elements in the set of data we are dealing with), while the sample refers to the sample from one city that we have.</div></br></br>
+</br></br><div data-scroll-watch>Here is a great video on identifying a population and sample</div></br></br>
+</br></br><div data-scroll-watch><iframe width="560" height="315" src="https://www.youtube.com/embed/eIZD1BFfw8E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></br></br>
+</br></br><div data-scroll-watch><h2>Point estimates and sampling variability</h2></div></br></br>
+</br></br><div data-scroll-watch>Let’s suppose we carried out a poll that suggested that Buhari, the Nigerian president’s approval rating was 65%. We would consider 65% as the point estimate of the approval rating we might expect to see if we collected responses from the entire voting population in Nigeria.
+    We would refer to the entire voting population as the parameter of interest. When the parameter in question is a proportion, we denote this by the letter <i>p</i> and refer to the sample proportion as <i>ˆp</i> or <i>p-hat</i></div></br></br>
+</br></br><div data-scroll-watch>Unless we somehow have the resources to collect responses from every single person in our population <i>p</i> generally remains unknown, we use <i>ˆp</i> as our estimate of our population.
+    The difference we see between the poll versus the parameter is what we call the error in the estimate.</div></br></br>
+</br></br><div data-scroll-watch>This error typically consists of two aspects; the sampling error and bias.</div></br></br>
+</br></br><div data-scroll-watch><h2>Ok, so what is the sampling error</h2></div></br></br>
+</br></br><div data-scroll-watch>Let’s go back to our example, we still want to know the average amount of hours teengers in South Africa spend playing Fortnite a day. If we take a large enough sample size that is representative of the population we should typically be able to get an estimate that is close enough to the actual average.
+    The difference between the quantity we want to know (the average hours a day teenagers spend playing Fortnite in South Africa) and the estimation through our sample.</div></br></br>
+</br></br><div data-scroll-watch><h2>What is Bias</h2></div></br></br>
+</br></br><div data-scroll-watch>The bias in this context refers to a systematic tendency to either over or underestimate the true population value. Depending on how we phrase a question in a survey for example we can introduce bias in our data by leading answers towards a certain response. There are a few other examples of bias that can occur.</div></br></br>
+</br></br><div data-scroll-watch>Sampling error, sometimes called sampling uncertainty, describes how much an estimate will tend to vary from one sample to the next.
+    For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. Much of statistics, including much of this book, is focused on understanding and quantifying sampling error, and we will find it useful to consider a sample’s size to help us quantify this error; the sample size is often represented by the letter <i>n</i>.</div></br></br>
+</br></br><div data-scroll-watch>In the example we used, we mentioned the phrase ‘If we take a large enough sample size that is representative of the population’. The question you might have here is what is meant by the phrase representative. Let’s think about it for a while. In the context of our example, we know that South Africa is largely unequal and diverse society.
+    Taking a sample size without factoring in this very important variable could leave us with a sample that is not truly representative of the population. Not everyone has access to wifi for example to enable people to play online. If our sample size only consists of teenagers who have access to wifi, we are not getting an accurate estimate of our population mean.</div></br></br>
+</br></br><div data-scroll-watch>It is important to look at how a population is sampled in order to avoid bias. Generally, we seek to randomly select a sample from a population to remove bias in the selection process.
+    If we allowed someone to pick and choose the sample, there is a possibility that the person would select people who could skew our sample towards the person’s interests, inclinations, preconceived assumptions and geographical location. We call a sample picked through this process a simple random sample.</div></br></br>
+</br></br><div data-scroll-watch>Let us assume we are using a survey asking teenagers how much time they spend playing Fortnite a day. What happens if we some do not respond to our survey, do we leave them out of the study and focus entirely on those who have responded? We call this the non-response bias. </div></br></br>
+</br></br><div data-scroll-watch>Here is more reading:</br>
+    <a href="https://www.insightsassociation.org/article/should-we-care-about-non-response-bias">Should We Care About Non-Response Bias?</a></div></br></br>
+</br></br><div data-scroll-watch>Now remember how we spoke about South Africa being an unequal country and that our sample needs to equally represent this diversity. We can carry out a divide and conquer sampling strategy where we divide the population into groups or strata. Each strata would be chosen such that similar cases are grouped together.
+    This could be based on gender, household income, race and other variables that would need to be accounted for. We would then randomly select samples from each strata. The samples selected from each strata would be representative of distributions in our population.</div></br></br>
+</br></br><div data-scroll-watch><h2>Variation of a point estimate</h2></div></br></br>
+</br></br><div data-scroll-watch><b>Point estimates are not exact</b> they only approximate the population parameter and they vary from one sample to another.
+    If we took 2 random samples in our example, we may find that the mean would be different for both samples, the variability would vary depending on the size of the sample and how it was collected. If one sample varies widely from one sample to another then this creates obvious problems.</div></br></br>
+</br></br><div data-scroll-watch>One way we can resolve this problem is through the Bootstrap Sampling Method. Let’s first talk about the Central Limit Theorem.</div></br></br>
+</br></br><div data-scroll-watch><h2>Central Limit Theorem</h2></div></br></br>
+</br></br><div data-scroll-watch>The central limit theorem is a fundamental theorem of probability and statistics. The theorem states that the distribution of the mean of a random sample from a population with finite variance is approximately normally distributed when the sample size is large, regardless of the shape of the population's distribution. Bootstrapping can be used to easily understand how the central limit theorem works.</div></br></br>
+</br></br><div data-scroll-watch><h3><a href="{% url 'students:central_limit_theorem' %}" class="btn btn-primary btn-lg btn-block">More on Central Limit Theorem</a></h3></div></br></br>
+</html>

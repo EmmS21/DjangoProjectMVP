@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div id="content">
+    <div class="container">
+        <div class="lock-container">
+            <div class="panel panel-default text-center paper-shadow" data-z="0.5">
+                <h1 class="text-display-1 text-center margin-bottom-none" style = "background:red;background: -webkit-linear-gradient(left,orange,yellow,green,cyan,blue,violet);background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 3vw;">Sign up as a Student</h1>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div >
+                            <form method="post" action="{% url 'student_signup' %}" >
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ next }}" class="form-control">
+                                {{ form|crispy }}
+                                <button type="submit" class="btn btn-success">Sign up</button><i class="fa fa-fw fa-unlock-alt"></i>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

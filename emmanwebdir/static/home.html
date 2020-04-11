@@ -1,0 +1,474 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="{% static 'img/favicon-large.png'%}" type="image/png">
+	<title>Gradient Boost</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'third/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/linericon/style.css' %}">
+	<link rel="stylesheet" href="{% static 'third/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'third/vendors/owl-carousel/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/lightbox/simpleLightbox.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/nice-select/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/animate-css/animate.css' %}">
+	<!-- main css -->
+	<link rel="stylesheet" href="{% static 'third/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'third/css/style2.css' %}">
+</head>
+
+<body>
+
+	<!--================ Start Header Menu Area =================-->
+	<header class="header_area">
+		<div class="header-top">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-lg-6 col-sm-6 col-4 header-top-left">
+						<a href=#>
+							<span class="lnr lnr-envelope"></span>
+							<span class="text">
+								<span class="text">emmanuel@thegradientboost.com</span>
+							</span>
+						</a>
+					</div>
+<!--					<div class="col-lg-6 col-sm-6 col-8 header-top-right">-->
+<!--						{% comment %} <a href="{% url 'signup' %}" class="text-uppercase">Signup</a> {% endcomment %}-->
+<!--                        {% comment %} <a href="{% url 'login' %}" class="text-uppercase">Login</a> {% endcomment %}-->
+<!--					</div>-->
+				</div>
+			</div>
+		</div>
+
+		<div class="main_menu">
+
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+                    <img src="{% static 'third/img/logo.png' %}" width="30%">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="https://techmentor.typeform.com/to/SSJKSc">Interested in becoming a mentor?</a></li> <!--{url 'about'}-->
+                            <li class="nav-item"><a class="nav-link" href="{% url 'course_details' %}"> About the Course</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://medium.com/gradientboost"> Blog</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Menu Area =================-->
+
+	<!--================ Start Home Banner Area =================-->
+	<section class="home_banner_area">
+		<div class="banner_inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="banner_content">
+							<h2>
+								Learn Data Science <br>
+								online
+							</h2>
+							<p>
+								Data is the lingua franca of the new world. With the guidance of an experienced mentor, we look to empower you with the skills to help you navigate the world of data.
+							</p>
+							<a href="{% url 'course_details' %}" class="primary-btn text-uppercase">Start your Journey Today</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Home Banner Area =================-->
+
+	<!--================ Start Feature Area =================-->
+	<section class="feature_area">
+		<div class="container">
+			<div class="row justify-content-end">
+				<div class="col-lg-4">
+					<div class="single_feature d-flex flex-row pb-30">
+						<div class="icon">
+							<span class="lnr lnr-book"></span>
+						</div>
+						<div class="desc">
+							<h4>Learn Online</h4>
+							<p>
+								Learn from anywhere in the world, all you need is a good wifi connection and a laptop.
+							</p>
+						</div>
+					</div>
+					<div class="single_feature d-flex flex-row pb-30">
+						<div class="icon">
+							<span class="fa fa-trophy"></span>
+						</div>
+						<div class="desc">
+							<h4>Mentor Guided Learning</h4>
+							<p>
+								Leverage the experience of data scientists and data engineers working in companies such as ABSA, Telkom and HealthQ.
+							</p>
+						</div>
+					</div>
+					<div class="single_feature d-flex flex-row">
+						<div class="icon">
+							<span class="lnr lnr-screen"></span>
+						</div>
+						<div class="desc">
+							<h4>Practise meets theory</h4>
+							<p>
+                                Practicality is at the core of our curriculum with mentor and self-directed projects to help you start building a portfolio and build your data-science expertise.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Feature Area =================-->
+
+	<!--================ Start Department Area =================-->
+	<div class="department_area section_gap">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="dpmt_courses">
+						<div class="row">
+							<!-- single course -->
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/sql.png' %}" alt="">
+									</div>
+									<h4>SQL</h4>
+								</div>
+							</div>
+							<!-- single course -->
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/comms.png' %}" alt="">
+									</div>
+									<h4>Business Comms</h4>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt-100">
+							<!-- single course -->
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/code.png' %}" alt="">
+									</div>
+									<h4>Programming</h4>
+								</div>
+							</div>
+							<!-- single course -->
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/statistics.png' %}" alt="">
+									</div>
+									<h4>Statistics</h4>
+								</div>
+							</div>
+							<!-- single course -->
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/data.png' %}" alt="">
+									</div>
+									<h4>Data Engineering</h4>
+								</div>
+							</div>
+							<!-- single course -->
+							<div class="col-lg-4 col-md-4 col-sm-6 col-12 text-center">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/machine-learning.png' %}" alt="">
+									</div>
+									<h4>Machine Learning</h4>
+								</div>
+							</div>
+							<!-- single course -->
+							<div class="offset-lg-4 col-lg-4 col-md-4 col-sm-6 col-12 text-center mt--100">
+								<div class="single_department">
+									<div class="dpmt_icon">
+										<img src="{% static 'third/img/dpmt/clean.png' %}" alt="">
+									</div>
+									<h4>Data Cleaning</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="offset-lg-1 col-lg-5">
+					<div class="dpmt_right">
+						<h1>Learn Data Science</h1>
+						<p>We live in a world that is increasingly becoming more data driven. Data has become the language of communication. Acquiring the necessary skills to derive insights from data gives you access to not only high paying career options, but jobs that can allow you to work remotely, the ability to understand what data science is and use that to guide important decision making in your organization and the ability to use your skills to work entirely as a freelancer or to start your own analytics business. <br><br>
+                            Our introductory course has been carefully designed with the assistance of experienced data scientists working in companies such as ABSA, HealthQ and Telkom to will give you a strong data science foundations, by focusing on essential core skills such as statistics, SQL, data visualization, data analysis and machine learning.<br><br>
+                            Data Science is a highly complex field and we believe that it is essential to build a solid foundational understanding before advancing into more complexity, as such, while introductory, our course is intense and requires extensive time commitment but gives you enough flexibility to pursue the course part-time.</p>
+						<a href="{% url 'course_details' %}" class="primary-btn text-uppercase">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================ End Department Area =================-->
+
+	<!--================ Start Popular Courses Area =================-->
+	<div class="popular_courses lite_bg">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<div class="main_title">
+                        <h2>Introduction to Data Science</h2>
+						<p>Start your journey today!</p>
+                        <br/>
+                        <a href="{% url 'course_details' %}" class="primary-btn text-uppercase">Enroll Today</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================ End Popular Courses Area =================-->
+
+	<!--================ Start Fact Area =================-->
+	<div class="fact_area overlay">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<div class="main_title">
+						<h2>Why choose Gradient Boost?</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/icon1.png' %}" alt="">
+						</div>
+						<h4>Mentor guided learning</h4>
+						<p>Mentors have the ability to make the process of learning a lot easier, more practical and easier to engage with. At Gradient Boost we assign you with data scientists/analyst mentor who will have regular calls with you to help you in areas where you are struggling, give you insights into how to better improve your skillsets, guide you through the curriculum and motivate you when you are feeling down.</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/icon2.png' %}" alt="">
+						</div>
+						<h4>Industry guided curriculum</h4>
+						<p>In building our curriculum we consulted with multiple data scientists to better understand the industry and the most important skills they use on a day to day basis. This gives you access to a curriculum that is highly practical and forever adapting to what is currently needed.</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/icon3.png' %}" alt="">
+						</div>
+						<h4>Peer to Peer Learning</h4>
+						<p>Sometimes the best person to help you is a peer who relates to your struggles and doubts. We created a community of highly engaged students who are willing to help each other grow.</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/icon4.png' %}" alt="">
+						</div>
+						<h4>Project based learning</h4>
+						<p>Build projects to help you start building a portfolio to differentiate yourself from other candidates and to give you practical experience in implementing what you learn.</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/icon5.png' %}" alt="">
+						</div>
+						<h4>Learn at your own pace</h4>
+						<p>Some people learn, some need more time to master a topic. Learn at a pace that is both appropriate for your learning style and schedule.</p>
+					</div>
+				</div>
+				<!-- single features -->
+				<div class="col-lg-4 col-md-6">
+					<div class="single_fact">
+						<div class="f_icon">
+							<img src="{% static 'third/img/f-icons/cash.png' %}" alt="">
+						</div>
+						<h4>Affordability</h4>
+						<p>Our course is priced to be affordable to all students with payment plans available to increase access.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================ End Fact Area =================-->
+
+	<!--================ Start Testimonial Area =================-->
+	<div class="section_gap testimonial_area">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-10 text-center">
+                    <header class="section-header">
+                        <h3>
+                            Some of our mentors work in these companies
+                        </h3>
+                    </header>
+
+					<div class="owl-thumbs d-flex justify-content-center" data-slider-id="1">
+						<div class="owl-thumb-item">
+							<div class="position-relative">
+								<img class="img-fluid" src="{% static 'third/img/companies/absa.png' %}" style="margin: 50px" alt="">
+							</div>
+							<div class="overlay-grad"></div>
+						</div>
+						<div class="owl-thumb-item">
+							<div class="position-relative">
+								<img class="img-fluid" src="{% static 'third/img/companies/healthq.png' %}" hspace="250"  alt="">
+							</div>
+							<div class="overlay-grad"></div>
+						</div>
+						<div class="owl-thumb-item">
+							<div class="position-relative">
+								<img class="img-fluid" src="{% static 'third/img/companies/telkom.jpeg' %}" hspace="200" width="65%" alt="">
+							</div>
+							<div class="overlay-grad"></div>
+						</div>
+{#						<div class="owl-thumb-item">#}
+{#							<div class="position-relative">#}
+{#								<img class="img-fluid" src="{% static 'third/img/companies/african.jpg' %}" hspace="200" alt="">#}
+{#							</div>#}
+{#							<div class="overlay-grad"></div>#}
+{#						</div>#}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{#    <section id="clients" class="wow fadeInUp">#}
+{#      <div class="container">#}
+{##}
+{#        <header class="section-header">#}
+{#          <h3>Our mentors work in these companies</h3>#}
+{#        </header>#}
+{##}
+{#        <div class="owl-carousel clients-carousel">#}
+{#          <img src="{% static 'third/img/companies/absa.png' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/healthq.png' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/telkom.jpeg' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/nestmetric.png' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/graychain.png' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/umuzi1.png' %}" alt="">#}
+{#          <img src="{% static 'third/img/companies/african.jpg' %}" alt="">#}
+{#        </div>#}
+{##}
+{#      </div>#}
+{#    </section>#}
+
+	<!--================ End Testimonial Area =================-->
+
+	<!--================ Start Registration Area =================-->
+	<div class="section_gap registration_area">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-7">
+					<div class="row clock_sec clockdiv" id="clockdiv">
+						<div class="col-lg-12">
+							<h1>Sign up Today</h1>
+							<p>Kick start your career in data science!</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 offset-lg-1">
+					<div class="register_form">
+						<h3>Upskill yourself</h3>
+						<p>Take charge of your career Today!</p>
+                        <a href="{% url 'course_details' %}" class="primary-btn text-uppercase">Enroll Today</a>
+{#						<form class="form_area" id="myForm" action="mail.html" method="post">#}
+{#							<div class="row">#}
+{#								<div class="col-lg-12 form_group">#}
+{#									<input name="name" placeholder="Your Name" required="" type="text">#}
+{#									<input name="name" placeholder="Your Phone Number" required="" type="tel">#}
+{#									<input name="email" placeholder="Your Email Address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"#}
+{#									 required="" type="email">#}
+{#								</div>#}
+{#								<div class="col-lg-12 text-center">#}
+{#									<button class="primary-btn">Submit</button>#}
+{#								</div>#}
+{#							</div>#}
+{#						</form>#}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================ End Registration Area =================-->
+	<div class="popular_courses lite_bg">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<center>
+						<header class="section-header">
+                        <h2>Get coding and stats challenges on your WhatsApp daily</h2>
+						</header>
+						<p>We built a free WhatsApp bot where you can access 5 coding and stats challenges daily. You will also have access to our Slack where you can post any challenges you are encountering and your solutions for feedback from our mentors and community</p>
+                        <br/>
+                        <a href="https://mailchi.mp/3d8ff96b57cf/gradientboostwhatsappbot" class="primary-btn text-uppercase">Sign me up!</a>
+					</center>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--================ Start footer Area  =================-->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row footer-bottom d-flex justify-content-between">
+				<p class="col-lg-8 col-sm-12 footer-text m-0 text-white"><strong>Built by Hooros Digital</strong> GradientBoost &copy; Copyright 2020</p>
+				<div class="col-lg-4 col-sm-12 footer-social">
+					<a href="https://www.facebook.com/thegradientboost/"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/gradient_the"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/company/37551624/"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End footer Area  =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="{% static 'third/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'third/js/popper.js' %}"></script>
+	<script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'third/js/stellar.js' %}"></script>
+	<script src="{% static 'third/js/countdown.js' %}"></script>
+	<script src="{% static 'third/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'third/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'third/js/owl-carousel-thumb.min.js' %}"></script>
+	<script src="{% static 'third/js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'third/vendors/counter-up/jquery.counterup.js' %}"></script>
+	<script src="{% static 'third/js/mail-script.js' %}"></script>
+    <script src="{% static 'third/js/main.js' %}"></script>
+
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="{% static 'third/js/gmaps.min.js' %}"></script>
+	<script src="{% static 'third/js/theme.js' %}"></script>
+</body>
+
+</html>

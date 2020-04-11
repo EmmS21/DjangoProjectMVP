@@ -1,0 +1,159 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>The Gradient Boost</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href="http://html5-templates.com/" />
+        <link rel="apple-touch-icon" href="{% static 'fifth/apple-touch-icon.png' %}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'fifth/css/style.css' %}">
+        <script src="{% static 'fifth/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<div class="wrapAll clearfix">
+			<div class="sidebar">
+				<div class="navigation">
+					<ul>
+						<li><a href="#">Return to your profile</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Post a question on Slack</a></li>
+					</ul>
+					<h3>Feedback</h3>
+					<ul>
+						<li><a href="#">Post your feedback regarding this content</a></li>
+					</ul>
+				</div>
+
+			
+			</div>
+			<div class="mainsection">
+				<div class="headerLinks">
+					<span class="user">{{ user.first_name }}</span>
+				</div>
+				<div class="tabs clearfix">
+					<div class="tabsLeft">
+						<ul>
+							<li><a href="#" class="active">What is Machine Learning?</a></li>
+							<!--<li><a href="#">Talk</a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="article">
+                    <center><img class="logoimage" src="{% static 'fifth/img/gradientboost.png' %}"/></center>
+					<h1>Gradient Boost Machine Learning Study Guide</h1>
+					<p id="background" class="siteSub"><strong>What is Machine Learning</strong></p>
+					<p class="roleNote">Sourced from Hands on Machine Learning with Scikit-Learn & TensorFlow Adapted for your convenience.</p>
+					<div class="articleRight">
+						<div class="articleRightInner">
+							<img src="{% static 'fifth/img/machine.jpg' %}" />
+						</div>
+					</div>
+					<p>Data has been called the oil of the 21st Century as it has become pivotal in decision making, understanding both the world around us and user behaviour in the business context. According to Forbes we currently produce over 2.5 quintillion bytes of data are created each day and the amount of data we are producing is growing exponentially.  However, the data itself is not where the real value lies, the value lies in insights that can be derived from the data. We can think of Machine Learning as both the science and the art of programming computers to pull relevant information from data and learn to do a task or perform a prediction on its own.</p>
+					<p>To put it in practical terms, let us assume you would like to create a program that will take in input in the form of a picture and then classify the picture as either a cat or a dog. With each picture the program gains new insights to better understand how to classify a picture as a cat or a dog, attaching weights to differentiate attributes depending on the model it uses to learn to classify either animal. The more data you have, the better the model becomes at learning a task</p><br>
+					<h4><strong>Additional Learning Resources</strong></h4><br>
+					<a href="https://hackernoon.com/the-simplest-explanation-of-machine-learning-youll-ever-read-bebc0700047c">The simplest explanation of machine learning you’ll ever read</a></br>
+					<div class="video-responsive">
+						<iframe width="200" height="100" src="https://www.youtube.com/embed/3bJ7RChxMWQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+					</div>
+					<div class="contentsPanel">
+						<div class="contentsHeader">Content</div>
+						<ul>
+							<li>
+								<span>1</span><a>Introduction: What is Machine Learning</a>
+								<ul>
+									<li><span>1.1</span><a href="#background">Background</a> </li>
+									<li><span>1.2</span><a href="#practical">Practical Scenario</a> </li>
+									<li><span>1.3</span><a href="#usecases">Machine Learning use cases</a></li>
+									<li><span>1.4</span><a href="#superun">Supervised versus Unsupervised Learning</a></li>
+									<li><span>1.5</span><a href="#batchonline">Batch versus Online Learning</a></li>
+									<li><span>1.6</span><a href="#instance">Instance based versus Model based learning</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h2 id="practical">Let us look at a practical scenario</h2>
+					<h3>Let us look at a practical ‘recipe book’ of how we would create this classification program: </h3>
+					<div class="articleRight">
+						<div class="articleRightInner">
+							<img src="{% static 'fifth/img/machinelearning.PNG' %}"/>
+							<figcaption>The Machine Learning Approach</figcaption>
+						</div>
+					</div>
+					We would start off by collecting our data. The collection method will vary depending on what sources we are using. After this process we would then proceed to <a class="tooltip" data-title="The train_test_split function in sklearn splits the dataset into training and test data randomly. You can manually set the test_size option to define the proportion of the dataset to be included in both the test and training splits, by default this value is 0.25 meaning the training set will contain 75% of the data while the test set contains 25% of the data.">split the data</a> into two sets; training and test data. We use the training data to train our model and the test data to <a class="tooltip" data-title="We split the data into training and test data because we want our model to generalize to data it has not been exposed to">test its performance</a>.
+					<!-- split data modal -->
+					<p>The model we choose then looks for patterns to better understand how to differentiate between the two images.</p>
+					<p>Lastly, proceed to evaluate the accuracy of the model and either analyse its errors or launch it</p>
+					<p>We evaluate the accuracy of the model and either analyse its errors or launch it.</p>
+					<div class="articleRight">
+						<div class="articleRightInner">
+							<img src="{% static 'fifth/img/machinelearning2.PNG' %}" />
+							<figcaption>The traditional programming approach</figcaption>
+						</div>
+					</div>
+					<p>Now compare this with the traditional programming approach of first studying the problem, hardcoding a set of rules to capture the patterns that help you differentiate between a cat and a dog, evaluate performance and either analyse the errors or launch. This approach appears more laborious particularly in instances where we expect to receive new data that may have rules that differ from what we have already hardcoded.</p>
+					<p>This is where the complexity of the Machine Learning approach comes into play. A Machine Learning model is trained to learn on its own looking at the data it is exposed to. New input actually allows the model to learn more patterns to better help the model classify our pet. It is important to note that more data does not always improve a model</p>
+					<h4><strong>Additional Reading:</strong></h4>
+					<ol>
+						<li><a href="https://www.kdnuggets.com/2015/06/machine-learning-more-data-better-algorithms.html">In Machine Learning what is better more data or better algorithms</li></a>
+						<li><a href="https://www.quora.com/In-machine-learning-is-more-data-always-better-than-better-algorithms">In Machine Learning, is more data always better than better algorithms</li></a>
+					</ol>
+
+					<h2 id="usecases">Machine Learning use cases</h2>
+					<p><i>Machine Learning has numerous practical use cases ranging from marketing insights to facial recognition. Let us look at a few use cases: </i></p>
+					<ol>
+						<li><a href="https://www.kdnuggets.com/2019/04/ai-conversational-applications.html">Voice Assistants and other Conversational Applications (e.g Siri and Alexa)</a></li>
+						<li><a href="https://smartphones.gadgethacks.com/how-to/next-big-thing-smartphone-cameras-is-machine-learning-its-already-here-0181727/">Smartphone cameras</a></li>
+						<li><a href="https://becominghuman.ai/how-netflix-uses-ai-and-machine-learning-a087614630fe?gi=788ebb8be64a">Movie, music and app recommendations</a></li>
+						<li><a href="https://www.altexsoft.com/blog/datascience/dynamic-pricing-explained-use-in-revenue-management-and-pricing-optimization/">Dynamic Pricing (e.g surge pricing in Uber)</a></li>
+						<li><a href="https://medium.com/@noambardin/keeping-cities-moving-how-waze-works-4aad066c7bfa">Optimal map routes (e.g Waze)</a></li>
+						<li><a href="https://www.marketingprofs.com/articles/2018/33750/improve-your-multichannel-marketing-attribution-with-machine-learning">Multichannel Marketing Attribution</a></li>
+						<li><a href="https://www.kdnuggets.com/2017/06/machine-learning-algorithms-used-self-driving-cars.html">Self driving cars</a></li>
+						<li><a href="https://blog.strands.com/machine-learning-artificial-intelligence-makes-banking-more-personal">Personalized Banking</a></li>
+						<li><a href="https://emerj.com/ai-sector-overviews/personalized-marketing-with-ai/">Personalized Marketing</a></li>
+					</ol>
+					<p>As you may have noticed from the previous page, the use cases are numerous and span across different industries. As more companies continue to embrace machine learning and data analysis in making decisions, job opportunities have continued to grow in not just data science but data engineering. You can think of data engineering as the people who create the pipelines and tools to enable data scientists and analyse to more easily retrieve cleaner data and use it to create models and derive insights to help solve business problems and guide decision making.</p>
+					<a href="https://developers.google.com/machine-learning/problem-framing/good">Identifying good problems for ML</a>
+					<h2 id="superun">Supervised versus Unsupervised Learning</h2>
+					<p>Machine Learning models can be classified by the degree and type of supervision required during the model training process. Machine Learning models can be classified under four major categories. These are:</p>
+					<ol>
+						<li><a href="https://www.guru99.com/supervised-machine-learning.html">Supervised Learning</a></li>
+						<li><a href="https://www.guru99.com/unsupervised-machine-learning.html">Unsupervised Learning</a></li>
+						<li><a href="https://www.datarobot.com/wiki/semi-supervised-machine-learning/">Semi-supervised Learning</a></li>
+						<li><a href="https://www.guru99.com/reinforcement-learning-tutorial.html">Reinforcement Learning</a></li>
+					</ol>
+					<h2 id="batchonline">Batch versus Online Learning</h2>
+					<p>Machine Learning systems can also be classified according to whether they learn incrementally from a stream of incoming data or not.</p>
+					<h3>Batch Learning</h3>
+					<p>With batch learning, the system is capable of learning incrementally meaning it must be trained using all the available data. This generally takes a lot of time and <a class="tooltip" data-title="Computing resources includes things such as RAM, CPU, HDD and GPU usage with the biggest factor being CPU usage. The closer you get to running out of RAM because of programs running in your computer the slower your machine runs.">computing resources</a>, as a result it is typically carried out offline. The system is first trained, launched into production and continues to run without requiring further learning. When you need your batch learning system to gain more insights from new data you would need to train a new version from scratch on the full dataset and replace the old with the new system.</p>
+					<h3>Online Learning</h3>
+					<p>With online learning you instead feed the system data sequentially either individually or in small groups. Each step in the learning process is faster and cheaper in terms of computational resources allowing your system to gain insights from new data as it arrives. This is great for systems that are expected to receive data as a continuous flow and need to change rapidly and autonomously.</p>
+					<p>The online system’s ability to adapt to changing data is referred to as its learning rate. A high learning rate means that your system will adapt rapidly to new data but will tend to forget old data quicker while the opposite would apply for a low learning rate making the system less sensitive to noise in new data.
+						This is also a good option in instances where you have limited computing resources allowing you to save space.</p>
+					<p>Lastly, online learning systems can also be used to train models on datasets that are too large to fit into one machine’s main memory.</p>
+					<h2 id="instance">Instance based versus Model based learning</h2>
+					<p>Another way to classify a machine learning system is by how the system generalizes. A lot of machine learning tasks involve making predictions. This means that the system needs to generalize to other examples it has not been exposed to. There are two main approaches to generalization; instance and model based learning</p>
+					<h4><strong>Additional Reading</strong></h4>
+					<a href="https://www.quora.com/What-are-the-differences-between-instance-based-and-model-based-learning-in-machine-learning">What are the differences between instance-based and model-based learning in Machine Learning</a>
+					<div class="lavenderBox">
+						<div class="header">Other Machine Learning Chapters</div>
+						<div class="subtitle linklist"><a href="#">The</a> <a href="#">Gradient</a> <a href="#">Boost</a> </div>
+						<div class="linklist">
+							<a href="#">Building an end to end ML project: Walk through </a> <a href="#">Linear Regression</a> <a href="#">Multiple Linear Regression</a> <a href="#">Logistic Regression</a><a href="#">Yelp Regression Project</a> <a href="#">K-Nearest Neighbours</a> <a href="#">Decision Trees</a> <a href="#">Clustering: K-Means</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"><\/script>')</script>
+        <script src="{% static 'script.js' %}"></script>
+    </body>
+</html>

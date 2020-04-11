@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}" defer></script>
+</head>
+</br>
+<div data-scroll-watch><center><img src="{% static 'third/img/logo.png' %}" width="50%"></center></br></br>We have reproduced these notes from the books: <b><i>Think Stats: Probability and Statistics for Programmers</i></b> and <b><i>OpenIntro Statistics</i></b>. We have added some annotations to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></br></br></br></br>
+</br><h2><div data-scroll-watch>Descriptive Statistics using Graphs</div></h2></br></br>
+</br></br><div data-scroll-watch>The danger with summary statistics is that while concise, they may obscure the bigger picture.</div></br></br>
+</br></br><div data-scroll-watch>It is often wise to look at both summary statistics and graphs showing the distribution of data to fully understand your data, the skewness of the distribution and other factors that may help you better understand your data.</div></br></br>
+</br></br><div data-scroll-watch>A distribution describes how often observed values occur in a sample space.</div></br></br>
+</br></br><div data-scroll-watch><b>The Big Picture</b> Graphs provide a visual representation of your data.
+    Understanding each type of graph opens options for you to better understand your dataset.</div></br></br>
+</br></br><div data-scroll-watch>Histograms</div></br></br>
+</br></br><div data-scroll-watch><iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~OLI_Stanford/64.embed"></iframe></br>
+<center>This is an example of a histogram showing the distribution of hypothetical exam grades</center></div></br></br>
+</br></br><div data-scroll-watch>This is an example of a histogram showing the distribution of hypothetical exam grades</div></br></br>
+</br></br><div data-scroll-watch>One of the most common ways to represent distribution is a histogram: a graph that shows the frequency or probability of each value.
+In a histogram, each block represents a bin (or interval). Each value (observation) in the dataset is put into a bin. The number of values in a bin is the frequency.
+    The higher the bar, the more frequent the data is.</div></br></br>
+</br></br><div data-scroll-watch>In this context, frequency means the number of times a value appears in a
+dataset—it has nothing to do with the pitch of a sound or tuning of a radio
+signal. A probability is a frequency expressed as a fraction of the sample
+size, n.</div></br></br>
+</br></br><div data-scroll-watch>The histogram graphically shows the following: i. the center of the data; ii. the spread of the data, iii. how skewed the data is, iv. presence of outliers both on the upper and lower scale and v. the presence of any modal values in your data.</div></br></br>
+</br></br><div data-scroll-watch>We create a notebook on GitHub to show you how to build a histogram using matplotlib. Data visualization will be covered in more detail in the data visualization part of this course. You may want to open the link as new tab.</br>Open</div></br></br>
+</br></br><div data-scroll-watch>A normalized histogram is called a PMF, which stands for “probability mass function”; that is, it’s a function that maps from values to probabilities</div></br></br>
+</br></br><div data-scroll-watch>We can normalize a histogram by getting the probabilities from each unique value. Simply put we map values to probabilities. A normalized histogram is referred to as a <b>Probability Mass Function (PMF).</b></br>
+If you still have the histogram notebook in different tab you will see the seaborn plot of the PMF of our dataset.</div></br></br>
+</br></br><div data-scroll-watch>You may notice peaks in your histogram. These represent the value that appears most frequently (the mode). Histograms with a single peak are known as uni-modal, bi-modal if there are bimodal and histograms with multiple peaks are multi-modal.</div></br></br>
+</br></br><div data-scroll-watch>Understanding the skewness of a histogram involves looking at whether the bulk of the data lies to the left or right. We call the distribution positively skewed or skewed right if the peak is towards the right and the left tail is longer</div></br></br>
+</br></br><div data-scroll-watch>Here are a few interesting articles to help bolster your understanding of skewness:</br>
+<ol>
+    <li><a href="https://www.youtube.com/watch?v=H9ITfdaX2ZQ">Skewed Histogram</a></li>
+    <li><a href="https://www.spcforexcel.com/knowledge/basic-statistics/are-skewness-and-kurtosis-useful-statistics#skewness">Skewness: Are the Skewness and Kurtosis Useful statistics?</a></li>
+</ol>
+</div></br></br>
+</br></br><div data-scroll-watch><h2>Box Plots</h2></div></br></br>
+</br></br><div data-scroll-watch><iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~PythonPlotBot/256.embed"></iframe></div></br></br>
+</br></br><div data-scroll-watch>We can think of a box plot as a graph that summarises a few statistics. These are the outliers both on the lower and upper end, the first and third quartile (and as a consequence the IQR) and the median.</div></br></br>
+</br></br><div data-scroll-watch>By outliers we are referring to any observation that appears very different relative to the rest of the data</div></br></br>
+</br></br><div data-scroll-watch>Here are a few interesting articles to help bolster your understanding of boxplots, again, please open these in new tabs:</br>
+<ol>
+    <li><a href="https://magoosh.com/statistics/reading-interpreting-box-plots/">Reading and Interpreting boxplots</a></li>
+    <li><a href="https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/stats-box-whisker-plots/v/interpreting-box-plots">Interpreting boxplots, Khan Academy</a></li>
+    <li><a href="https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/box-whisker-plots/a/box-plot-review">Boxplot review, Khan Academy</a></li>
+</ol>
+</div></br></br>
+</br></br><div data-scroll-watch>We have also built a boxplot in the Jupyter Notebook to show you how to build a simple boxplot using matplotlib.</div></br></br>
+</br></br><div data-scroll-watch><h2>Categorical Data</h2></div></br></br>
+</br></br><div data-scroll-watch>There are quite a few tables and tools that can be used to summarize categorical data</div></br></br>
+</br></br><div data-scroll-watch><h2>Contingency tables and bar plots</h2></div></br></br>
+</br></br><div data-scroll-watch>A table that is used to summarize data from two categorical variables is called a <b>contingency table</b>. These are also called <b>crosstabs</b> or <b>two-way tables.</b></br>
+    We can think of a contingency table as a type of frequency distribution table. This table shows two variables and the frequency of each variable.</div></br></br>
+</br></br><div data-scroll-watch><h2>Bar Plots</h2></div></br></br>
+</br></br><div data-scroll-watch><iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~nolacontent/36.embed"></iframe></br>
+    <center><small>This is a barplot of murders in New Orleans since 1960, sourced from the City of New Orleans and staff reports</small></center></div></br></br>
+</br></br><div data-scroll-watch>A barplot is a common way to display a single categorical variable. A barplot could for example be used to show the values in the categorical variable and the frequency in which they occur. The frequencies could also be converted to proportions/probabilities.</div></br></br>
+</br></br><div data-scroll-watch>You could also use a barplot to show multiple variables. You can do this by stacking the barplot. This is referred to as a <b>Stacked Barplot</b>. You could also opt to place variable as its own bar. This would be referred to as a <b>Grouped Barplot</b>.</div></br></br>
+</br></br><div data-scroll-watch><h2>Stacked Barplot</h2></div></br></br>
+</br></br><div data-scroll-watch><iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~chris/7365.embed"></iframe></br>
+    <center><small>You will notice that this stacked barplot summarizes data for multi complaints received in a building.</small></center></div></br></br>
+</br></br><div data-scroll-watch>Notice how each stack represents a different categorical variable. You could also easily convert a contingency table to a stacked barplot to visualize the results from your table.</div></br></br>
+</br></br><div data-scroll-watch>The stacked bar plot is most useful when it’s reasonable to assign one variable as the explanatory variable and the other variable as the response, since we are effectively grouping by one variable first and then breaking it down by the others.</div></br></br>
+</br></br><div data-scroll-watch>Side-by-side bar plots are more agnostic in their display about which variable, if any, represents the explanatory and which the response variable.
+    It is also easy to discern the number of cases in of the six different group combinations. However, one downside is that it tends to require more horizontal space.
+    Additionally, when two groups are of very different sizes, as we see in the own group relative to either of the other two groups, it is difficult to discern if there is an association between the variables</div></br></br>
+</br></br><div data-scroll-watch>The standardized stacked bar plot is helpful if the primary variable in the stacked bar plot is relatively imbalanced.
+    The major downside of the standardized version is that we lose all sense of how many cases each of the bars represents.</div></br></br>
+</br></br><div data-scroll-watch></div></br></br>
+</br></br><div data-scroll-watch><h2>Pie Charts</h2></div></br></br>
+</br></br><div data-scroll-watch><iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~PythonPlotBot/2095.embed"></iframe></div></br></br>
+</br></br><div data-scroll-watch>Pie charts can be useful for giving a high-level overview to show how a set of cases break down.
+    However, it is also difficult to decipher details in a pie chart.This gets even more difficult as the amount of variable that need to be shown increase.</div></br></br>
+<h3><a href="{% url 'students:probability_one' %}" class="btn btn-primary btn-lg btn-block">Ready to start Probability?</a></h3></div></br></br>
+</html>

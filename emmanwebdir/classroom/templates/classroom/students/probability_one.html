@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}" defer></script>
+</head>
+</br>
+<div data-scroll-watch><center><img src="{% static 'third/img/logo.png' %}" width="50%"></center></br></br>We have reproduced these notes from the books: <b><i>Think Stats: Probability and Statistics for Programmers</i></b> and <b><i>OpenIntro Statistics</i></b>. We have added some annotations to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></br></br></br></br>
+</br><h2><div data-scroll-watch>Probability</div></h2></br></br>
+</br></br><div data-scroll-watch>We generally think of probability as a real value between 0 and 1.
+	The value can also be expressed as a percentage between 0 and 100%.
+	This value represents the notion that some things are more likely to occur than others and gives us the language to quantify the uncertainty of events.</div></br></br>
+</br></br><div data-scroll-watch>Let’s try and look at this from a more practical perspective; Let’s assume we have a six sided die. Each time we roll the die we call this a trial or an event.
+	We know that there are 6 possible outcomes. The die could land on any number between 1 and 6.
+	The likelihood of the die landing on any given number/outcome is the probability</div></br></br>
+</br></br><div data-scroll-watch>Assuming this is a fair dial, to get the probability of the die landing in a given number.
+	Let’s assume the number is 4, we divide the number of times 4 appears in the die by the total number of possible outcomes.
+	In this case we would divide 1 by 6 giving us a probability of 0.166 of the die landing on the number 4.</div></br></br>
+</br></br><div data-scroll-watch>Put in a more concise way, the probability of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times.</div></br></br>
+</br></br><div data-scroll-watch><h2>Frequentism versus Bayesianism</h2></div></br></br>
+</br></br><div data-scroll-watch>The frequentist defines probability in terms of frequencies of events. If there is no set of identical trials, there is no probability.
+	If need be, the frequentist will create a fictitious/hypothetical population so that she can meaningfully talk about frequencies.</div></br></br>
+</br></br><div data-scroll-watch>Frequentism is philosophically safe, but frustrating because it limits the scope of probability to physical systems that are either random (like atomic decay) or so unpredictable that we model them as random (like a tumbling die).
+	Anything involving people is pretty much off the table.</div></br></br>
+</br></br><div data-scroll-watch>The alternative to frequentism is Bayesianism. Through this philosophy probability is defined as a degree of belief that an event will occur.
+	This is a rather intuitive way to think about probability.
+	In bayesianism we have prior beliefs, which are certain facts in our hypothesis space that are more plausible than others.
+	These beliefs however change as we observe more instances that either prove or disprove our prior beliefs. Our updated/final beliefs are referred to as our posterior beliefs.</div></br></br>
+</br></br><div data-scroll-watch>By this definition, the notion of probability can be applied in almost any circumstance.
+	One difficulty with Bayesian probability is that it depends on a person’s state of knowledge; people with different information might have different degrees of belief about the same event.
+	For this reason, many people think that Bayesian probabilities are more subjective than frequency probabilities.</div></br></br>
+</br></br><div data-scroll-watch>Here is an example adapted from ‘Think Stats’. What is the probability that Robert Mugabe is the current president of Zimbabwe?</div></br></br>
+</br></br><div data-scroll-watch><img src="{% static 'second/images/learningmaterial/mugabe.jpg' %}"></div></br></br>
+</br></br><div data-scroll-watch>The frequentist would not see this as a question of probability because Mugabe either is or is not the president.</div></br></br>
+</br></br><div data-scroll-watch>However, the Bayesian would assign a probability to this event based on the information that is available to her.
+    In this scenario we know that the now deceased Mugabe was deposed through a coup in Zimbabwe in November 2017, we also know that Mugabe passed away in September 2019, based on this we can assign a probability of 0.</div></br></br>
+</br></br><div data-scroll-watch><b>Here is some extra reading on the differences between frequentism and bayesian probabillity:</b></br>
+<ol>
+    <li><a href="http://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/">Frequentism and Bayesianism: A Practical Introduction</a></li>
+    <li><a href="https://365datascience.com/bayesian-vs-frequentist-approach/">Bayesian vs Frequensits Approach: Same Data Opposite Results</a></li>
+    <li><a href="https://arxiv.org/pdf/1411.5018.pdf">Frequentism and Bayesianism: A Python-driver Primer</a></li>
+    <li><a href="https://www.nytimes.com/2014/09/30/science/the-odds-continually-updated.html">The Odds, Continually Updated</a></li>
+</ol>
+</div></br></br>
+</br></br><div data-scroll-watch><a href="{% url 'students:probability_one_exercises' %}" class="btn btn-primary btn-lg">Time for some quick revision</a></div></br></br>
+</br></br><div data-scroll-watch><a id="one"></a></div></br></br>
+</br></br><div data-scroll-watch><h2>Rules of Probability</h2></div></br></br>
+</br></br><div data-scroll-watch>For frequency probabilities, we can derive rules that relate probabilities of different events.
+    Probably the best known of these rules is P(A and B) = P(A) P(B), where P(A and B) is the probability that events A and B both occur.
+    This formula is easy to remember; the only problem is that it is not always true.</div></br></br>
+</br></br><div data-scroll-watch>This formula only applies if A and B are independent, which means that if I know A occurred, that doesn’t change the probability of B, and vice versa.</div></br></br>
+</br></br><div data-scroll-watch>For example, if A is tossing a coin and getting heads, and B is rolling a die and getting 1, A and B are independent, because the coin toss doesn’t tell me anything about the die roll.
+    But if I roll two dice, and A is getting at least one six, and B is getting two sixes, A and B are not independent, because if I know that A occurred, the probability of B is higher, and if I know B occurred, the probability of A is 1.</div></br></br>
+</br></br><div data-scroll-watch>When A and B are not independent, it is often useful to compute the conditional probability, P(A|B), which is the probability of A given that we know B occurred:</div></br></br>
+</br></br><div data-scroll-watch><strong>P(A|B) = P(A and B)/P(B)</strong></div></br></br>
+</br></br><div data-scroll-watch>From that we can derive the general relation:</div></br></br>
+</br></br><div data-scroll-watch><strong>P(A and B) = P(A) P(B|A)</strong></div></br></br>
+</br></br><div data-scroll-watch>This might not be as easy to remember, but if you translate it into English it should make sense:</br>
+    “The chance of both things happening is the chance that the first one happens, and then the second one given the first.”</div></br></br>
+</br></br><div data-scroll-watch>There is nothing special about the order of events, so we could also write <strong>P(A and B) = P(B) P(A|B)</strong> These relationships hold whether A and B are independent or not. If they are independent, then P(A|B) = P(A), which gets us back where we started.
+    Because all probabilities are in the range 0 to 1, it is easy to show that P(A and B) ≤ P(A)</div></br></br>
+</br></br><div data-scroll-watch>To picture this, imagine a club that only admits people who satisfy some requirement, A. Now suppose they add a new requirement for membership, B. It seems obvious that the club will get smaller, or stay the same if it happens that all the members satisfy B</div></br></br>
+</br></br><div data-scroll-watch>Let’s look at another practical example. I assume we all know that a dice has 6 sides, each side being a number ranging from 1 to 6 and each number appearing once. In this example we want to find the probability that when we roll the dice, it will land on a number less than 5 given that we know that we landed on an even number.</div></br></br>
+</br></br><div data-scroll-watch>This will translate to:</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mathbf{P\left ( B | A \right )} = \frac{P(A \bigcap B)}{P(A)}" border="0"/></div></br></br>
+</br></br><div data-scroll-watch>Using a venn diagram, this would translate to:</div></br></br>
+</br></br><div data-scroll-watch><script src="//my.visme.co/visme.js"></script><div class="visme_d" data-url="76pqyv7w-venn-conditional-probability-2" data-w="800" data-h="800" data-domain="my"></div></div></br></br>
+</br></br><div data-scroll-watch>In this context B represents rolling our dice and landing on a number less than 5, while A represents knowing that the number landed is an even number.</div></br></br>
+</br></br><div data-scroll-watch>So we know that we have a 1/6th chance for each number landing when we roll our dice. We will therefore start off by adding the probability of rolling an even number number less than 5. This means either getting the numbers; 2, 4 and 6. This will add up to 3/6 or 1/2.</div></br></br>
+</br></br><div data-scroll-watch>Now, what is the probability of landing a number and its value is less than 5. There are 4 numbers on our dice that are less than 5. Adding these up will give us 4/6 or 2/3.</div></br></br>
+</br></br><div data-scroll-watch>Let’s look at a visual representation of the intersection of these two events.</div></br></br>
+</br></br><div data-scroll-watch><script src="//my.visme.co/visme.js"></script><div class="visme_d" data-url="w4jmrd7z-venn-conditional-probability" data-w="800" data-h="800" data-domain="my"></div></div></br></br>
+</br></br><div data-scroll-watch>Remember: we are concerned about the <b>intersection of these two events</b>. The probability of the intersection of P(A) and P(B) is ⅓.</div></br></br>
+</br></br><div data-scroll-watch>Now let’s calculate the conditional probability of our dice landing on a number less than 5 given that we know that we will land on an even number.</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mathbf{P\left ( B | A \right )} = \frac{P(A \bigcap B)}{P(A)} = \frac{\frac{1}{3}}{\frac{1}{2}} = \frac{1}{3} * \frac{2}{1} = \frac{2}{3}" border="0"/></div></br></br>
+</br></br><div data-scroll-watch><a href="{% url 'students:probability_exercises_two' %}" class="btn btn-primary btn-lg">Time for some quick revision</a></div></br></br>
+</br></br><div data-scroll-watch><a id="two"></a></div></br></br>
+
+<h3><a href="{% url 'students:descriptive_two' %}" class="btn btn-primary btn-lg btn-block">Let's move on to the next section</a></h3></div></br></br>
+</html>

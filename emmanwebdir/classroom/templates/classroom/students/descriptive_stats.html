@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}"></script>
+</head>
+<body>
+<h2><div data-scroll-watch>We have reproduced these notes from the amazing boot Think Stats: Probability and Statistics for Programmers. We have added some annotations that will appear when you hover over some text to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></h2></br></br></br></br>
+
+</br><h2><div data-scroll-watch>Descriptive Statistics</div></h2></br></br>
+	</br></br><h2><div data-scroll-watch>Mean and averages</div></h2></br></br>
+</br></br><div data-scroll-watch>If you have a sample of n values, xi, the mean, µ, is the sum of the values divided by the number of values; in other words</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mu  = \frac{1}{n}\sum_{i} x_{i}
+" border="0"/></div></br></br>
+</br><div data-scroll-watch>The words “mean” and “average” are sometimes used interchangeably, but
+	I will maintain this distinction:
+		<ol>
+			<li>The “mean” of a sample is the summary statistic computed with the
+				previous formula.</li>
+			<li>An “average” is one of many summary statistics you might choose to
+				describe the typical value or the central tendency of a sample</li>
+	</ol>
+	</div>
+	<div data-scroll-watch>Sometimes the mean is a good description of a set of values. For example,
+apples are all pretty much the same size (at least the ones sold in supermarkets). So if I buy 6 apples and the total weight is 3 pounds, it would be a
+		reasonable summary to say they are about a half pound each.</div>
+	<div data-scroll-watch>But pumpkins are more diverse. </br>Suppose I grow several varieties in my
+garden, and one day I harvest three decorative pumpkins that are 1 pound each, two pie pumpkins that are 3 pounds each, and one Atlantic Giant® pumpkin that weighs 591 pounds. The mean of this sample is 100
+pounds, but if I told you “The average pumpkin in my garden is 100
+	pounds,” that would be wrong, or at least misleading.</br>In this example, there is no meaningful average because there is no typical
+pumpkin.</div>
+	</br>
+	<h2><div data-scroll-watch>Variance</div></h2></br>
+	<div data-scroll-watch>If there is no single number that summarizes pumpkin weights, we can do
+		a little better with two numbers: mean and variance.</br>
+In the same way that the mean is intended to describe the central tendency,
+variance is intended to describe the spread. The variance of a set of values
+		is</div>
+<div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mu  = \sigma^{2} = \frac{1}{n}\sum_{i}(X_i - \mu)^{2}" border="0"/></div>
+<div data-scroll-watch>The term xi
+ -µ is called the “deviation from the mean,” so variance is the
+mean squared deviation, which is why it is denoted σ
+2. The square root of
+	variance, σ, is called the <b>standard deviation</b>.</div>
+<div data-scroll-watch>By itself, variance is hard to interpret. One problem is that the units are
+strange; in this case the measurements are in pounds, so the variance is in
+pounds squared. Standard deviation is more meaningful; in this case the
+	units are pounds.</div>
+	<div data-scroll-watch>If you have prior experience, you might have seen a formula for variance
+with n − 1 in the denominator, rather than n. This statistic is called the
+“sample variance,” and it is used to estimate the variance in a population
+using a sample</div>
+	<h2><div data-scroll-watch>Distributions</div></h2>
+	<br data-scroll-watch>Summary statistics are concise, but dangerous, because they obscure the
+		data. An alternative is to look at the distribution of the data, which describes how often each value appears.</br>
+	The most common representation of a distribution is a histogram, which is a graph that shows the frequency or probability of each value.</div>
+	<div data-scroll-watch>In this context, frequency means the number of times a value appears in a dataset—it has nothing to do with the pitch of a sound or tuning of a radio signal.
+		A probability is a frequency expressed as a fraction of the sample size, n.</br>
+	In Python, an efficient way to compute frequencies is with a dictionary. Given a sequence of values, t:</div>
+<div data-scroll-watch>hist = {}
+for x in t:
+hist[x] = hist.get(x, 0) + 1</div>
+<div data-scroll-watch>The result is a dictionary that maps from values to frequencies. To get from
+frequencies to probabilities, we divide through by n, which is called normalization:</div>
+<div data-scroll-watch>n = float(len(t))
+pmf = {}
+for x, freq in hist.items():
+pmf[x] = freq / n
+</div>
+<div data-scroll-watch>The normalized histogram is called a PMF, which stands for “probability
+mass function”; that is, it’s a function that maps from values to probabilities</div>
+<div data-scroll-watch>It might be confusing to call a Python dictionary a function. In mathematics,
+a function is a map from one set of values to another. In Python, we usually
+represent mathematical functions with function objects, but in this case we
+are using a dictionary (dictionaries are also called “maps,” if that helps).</div>
+<div data-scroll-watch><h2>Representing histograms</h2></div>
+<div data-scroll-watch>I wrote a Python module called Pmf.py that contains class definitions for
+Hist objects, which represent histograms, and Pmf objects, which represent
+PMFs</div>
+</body>
+</html>

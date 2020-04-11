@@ -1,0 +1,194 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>The Gradient Boost</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href="http://html5-templates.com/" />
+        <link rel="apple-touch-icon" href="{% static 'fifth/apple-touch-icon.png' %}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'fifth/css/style.css' %}">
+{#        <link href="{% static 'second/css/app/app.css' %}" rel="stylesheet">#}
+        <script src="{% static 'fifth/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<div class="wrapAll clearfix">
+			<div class="sidebar">
+				<div class="navigation">
+					<ul>
+						<li><a href="#">Return to your profile</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Post a question on Slack</a></li>
+					</ul>
+					<h3>Feedback</h3>
+					<ul>
+						<li><a href="#">Post your feedback regarding this content</a></li>
+					</ul>
+				</div>
+
+			
+			</div>
+			<div class="mainsection">
+				<div class="headerLinks">
+					<span class="user">{{ user.first_name }}</span>
+				</div>
+				<div class="tabs clearfix">
+					<div class="tabsLeft">
+						<ul>
+							<li><a href="#" class="active">Building an End to End ML Project - High Level Walk Through</a></li>
+							<!--<li><a href="#">Talk</a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="article">
+                    <center><img class="logoimage" src="{% static 'fifth/img/gradientboost.png' %}"/></center>
+					<h1>Gradient Boost Machine Learning Study Guide</h1>
+					<p id="background" class="siteSub"><strong>Building an end to end Machine Learning Project</strong></p>
+					<p class="roleNote">Sourced from Hands on Machine Learning with Scikit-Learn & TensorFlow Adapted for your convenience.</p>
+                    <p>Let's create a practical scenario to give you a feel of how you would build a machine learning project in the real world.</p>
+					<div class="contentsPanel">
+						<div class="contentsHeader">Content</div>
+						<ul>
+							<li>
+								<span>1</span><a>Introduction: What is Machine Learning</a>
+								<ul>
+									<li><span>1.1</span><a href="#background">Background</a> </li>
+									<li><span>1.2</span><a href="#practical">Practical Scenario</a> </li>
+									<li><span>1.3</span><a href="#usecases">Machine Learning use cases</a></li>
+									<li><span>1.4</span><a href="#superun">Supervised versus Unsupervised Learning</a></li>
+									<li><span>1.5</span><a href="#batchonline">Batch versus Online Learning</a></li>
+									<li><span>1.6</span><a href="#instance">Instance based versus Model based learning</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h2 id="practical">Looking at the big picture and understanding the context</h2>
+                    <p>You have been hired as a data scientist by the State of New York. They give you a task to use a dataset they have provided. This is dataset is called the <a href="Energy_and_Water_Data_Disclosure_for_Local_Law_84_2017__Data_for_Calendar_Year_2016_.csv">energy dataset</a>, the dataset contains data regarding building energy efficiency. The Energy Star Score in particular is regarded as an aggregate measure of a building's energy performance.</p>
+                    <p>Your employer would like you to infer the energy star scores for buildings without an energy score. Additionally, they would like to understand if there are any independent variables in the dataset that correlate with the energy star rating of a building, or in other words - what are the variables that are most predictive of the energy star score.</p>
+                    <p>In order to effectively answer these questions you would need to first understand the dataset, its columns, the data types in each column and identify, visualize the dataset to understand trends that would aide in your analysis and then build a machine learning model to predict the energy star score of buildings.</p>
+                    <p>Luckily, you have already been provided with the dataset and do not have to acquire the data, you can either opt to download the dataset or read the relevant file from its source. In this case, we have saved the dataset on our <a href="Energy_and_Water_Data_Disclosure_for_Local_Law_84_2017__Data_for_Calendar_Year_2016_.csv">Dropbox</a> for your convenience.</p>
+
+                    <h2>Let us take a glimpse into our dataset</h2>
+                    <br>
+                    <iframe width="100%" height="400px" frameborder="0" scrolling="no" src="https://onedrive.live.com/embed?resid=3D827F607F9ADDAF%215297&authkey=%21AHq5Kl9wO7YtKFc&em=2&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True"></iframe>
+                    <center><figcaption><small><strong><i>This is a sample of the first 500 rows from our dataset</i></strong></small></figcaption></center>
+
+                    <p>From observing the dataset, we know that we have access to both the features and targets and are therefore dealing with labeled data. This means that we are dealing with a <a class="tooltip" data-title="supervised learning requires you to have examples of both the input data and the response. If you have both of those, supervised learning lets you come up with an equation that approximates that relationship, so in the future you can guess y values for any new value of x."> supervised learning task.</a></p>
+                    <p>When we observe the <a class="tooltip" data-title="What we want to predict- The Energy Star Score">target variable</a> we know that this is a <a class="tooltip" data-tile="A numeric variable that has an infinite number of values between any two values. This also includes date/time variables">continuous variable</a>, therefore in instances when we want to predict a continuous variable we are dealing with a regression problem.</p>
+                    <h4><strong>Additional Reading:</strong></h4>
+                    <a href="https://machinelearningmastery.com/classification-versus-regression-in-machine-learning/">Difference between Classification and Regression in Machine Learning</a>
+
+                    <h2>Creating your Workspace</h2></br>
+                    <p>The first question to ask yourself is what tools will you be using to start working on this problem and how do you set these tools up, especially as a beginner who may want to follow along with the example and possibly discover new insights that are not covered in this guide.</p>
+                    <p>You would typically either choose to use <a href="https://medium.com/@data_driven/python-vs-r-for-data-science-and-the-winner-is-3ebb1a968197">Python or R</a> depending on your level of competence in either languages and your personal preferences. For the purposes of this example, we will assume that the Introduction to Python curriculum has given you both a bit of a Python bias and more competence in Python.</p>
+                    <p>Firstly, you will want to download Python into your local machine, assuming you have not already done this. You then want to create a workspace directory that will house both your code and datasets. It is generally recommended that you work in an isolated virtual environment. This will allow you to work on different projects without having conflicting library versions impeding your progress.</p>
+                    <p>After this you would then want to install the libraries that would be required for your project. Note: if you later want to share your code with someone else you need to understand that not everyone has the same packages or versions of said packages and this might create compatibility issues. In such scenarios you may want to create a requirements.txt file listing the packages and versions used in your project.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="https://jupyter.readthedocs.io/en/latest/install.html">Installing Jupyter Notebook</a></li>
+                        <li><a href="https://realpython.com/python-virtual-environments-a-primer/">Python Virtual Environments: A Primer</a></li>
+                        <li><a href="https://medium.com/@boscacci/why-and-how-to-make-a-requirements-txt-f329c685181e">Why and How to make a Requirements.txt</a></li>
+                    </ol>
+                    <h2>Downloading the Data</h2>
+                    <p>In this part of the process you would either: </p>
+                    <ol>
+                        <li><a class="tooltip" data-title="Web scraping is an automated way of extracting large chunks of data from websites which can then be saved on a file in your computer or accessed on a spreadsheet. When you access a web page, you can only view the data but cannot download it. Yes, you can manually copy and paste some of it but it is time-consuming and not scalable. Web scraping automates this process and quickly extracts accurate and reliable data from web pages that you can use for business intelligence.">Scrape data</a> from a single or multiple websites or other sources</li>
+                        <li>Retrieve data from a relational database</li>
+                        <li>Download a single data file (compressed or otherwise)</li>
+                        <li>Simply read it from an existing source. In this scenario we could either read the data from the source or download it and read it from our local drive</li>
+                    </ol>
+                    <p>You can use the skills you have already acquired from the Python module to read this file using the pandas library.</p>
+                    <h2>Understanding and cleaning your data</h2>
+                    <p>Since you already have access to all the data required, after understanding and framing the business problem you will need to get a better understanding of your data. In the real world you will rarely encounter clean data that is immediately ready for analysis and will need to clean it and <a class="tooltip" data-title="All the activity that you do on the raw data to make it “clean” enough to input to your analytical algorithm is called data wrangling or data munging">wrangle</a>a it into an acceptable format. This process is referred to as data cleaning and typically a huge part of the data science process.</p>
+                    <p>In many cases cleaning requires some contextual understanding of our data. In this step you would either research or use your pre-existing contextual knowledge to understand what each column refers to. You would then understand if the data in each column is consistent to what  should be shown in the column. For example do the values in the column fall within ranges that are realistic and accurate.</p>
+                    <p>It is generally prudent to start off by looking at the structure of the data. You can do his by looking at the first 5 rows using the DataFrame’s head() function. This will give you an understanding of each column’s data type and values. You can also use the info() method to get a better description of the data.</p>
+                    <p>To get an even deeper understanding of your data you could also use <a href="https://pandas-profiling.github.io/pandas-profiling/docs/">pandas_profiling</a>. For each column this will give you a summary of all missing and unique values, the types of columns, descriptive and quantile statistics.</p>
+                    <p>After observing the data types you will notice that some of the columns that contain feet are stored as objects. Since we cannot do numerical analysis on strings, these will need to converted to floats. You would need to iterate through each column, for each column check if the column needs to be numeric or not and convert the column to a float in instances where it needs to be converted to a float.</p>
+                    <p>You will also notice that the missing values appear to be encoded as “Not Available”. You will need to convert these entries to NaN values that can be interpreted as numbers. For this you can use the replace function to map Not Available to np.nan values. After this initial conversion you would then need to decide how you will be dealing with missing values in your dataset.</p>
+                    <p>As you may already understand data can be missing for multiple reasons, in a real world scenario you would need to establish a set assumptions to help guide whether you choose to impute the missing values or drop them altogether. You would also need to choose what how to handle outlier values. Do you regard them as extreme anomalies that are not valuable to your model or not.</p>
+
+                    <h2>Exploring your Data: Exploratory Data Analysis</h2>
+                    <p>Creating visualizations from our data can help us spot patterns that give us a bit more insight into the structure and distribution of the data. This also shows us patterns in our data that we may not have been initially aware of. Exploratory Data Analysis is generally an open ended process where we both calculate statistics in our data and spot trends, patterns and anomalies to let us learn more about our data.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="https://www.svds.com/value-exploratory-data-analysis/">The Value of Exploratory Data Analysis</a></li>
+                        <li><a href="https://medium.com/@srimalashish/why-eda-is-necessary-for-machine-learning-233b6e4d5083">Why EDA is necessary for Machine Learning</a></li>
+                    </ol>
+                    <br>
+                    <p>In our example we could start off by examining the distribution of our target variable (what we want to predict). For this we could use the matplotlib library to create a histogram to visualize the distribution of this variable.</p>
+                    <p>We could then create visualizations to understand the relationships between the features. A <a href="https://www.data-to-viz.com/graph/density.html">density plot</a> in this context could give us an understanding of how categorical variable changes the distribution of a single variable. It may also be wise to get an understanding of the linear relationship between the different variables in our dataset using the Pearson Correlation Coefficient.</p>
+                    <p>You can also use <a href="https://blog.usejournal.com/pandas-profiling-to-boost-exploratory-data-analysis-8e718238bcd1?gi=1d18060b81c0">pandas_profilingreport</a> to create visualizations to highlight highly correlated variables.</p>
+                    <h2>Feature Selection and Engineering</h2>
+                    <p>An important part of the machine learning process is both determine the best features to use and engineering new features that could help improve the performance of our model. You can think of feature engineering as either using domain knowledge or an iterative process to create new features from existing features which if done right can increase the predictive power of our model.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="https://machinelearningmastery.com/discover-feature-engineering-how-to-engineer-features-and-how-to-get-good-at-it/">Discover Feature Engineering, how to engineer features and how to get good at it</a></li>
+                        <li><a href="https://towardsdatascience.com/feature-engineering-for-machine-learning-3a5e293a5114">Fundamental Techniques of Feature Engineering for Machine Learning</a></li>
+                        <li><a href="https://machinelearningmastery.com/an-introduction-to-feature-selection/">An Introduction to Feature Selection</a></li>
+                    </ol>
+                    <h2>Multicollinearity</h2>
+                    <p>For the purposes of the feature selection process there are often cases where features are strongly correlated with each other, these features are referred to as collinear. In instances where two or more features are highly related to another we refer to this as multicollinearity. This often means that the features do not provide unique or independent information to our regression model. This could potentially result in a loss of reliability of our model and removing one of these pairs of features may help a model generalize and be more interpretable.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="http://www.statsmakemecry.com/smmctheblog/confusing-stats-terms-explained-multicollinearity.html">Confusing Stats Terms Explained: Multicollinearity</a></li>
+                        <li><a href="https://www.quora.com/Why-is-multicollinearity-bad-in-laymans-terms-In-feature-selection-for-a-regression-model-intended-for-use-in-prediction-why-is-it-a-bad-thing-to-have-multicollinearity-or-highly-correlated-independent-variables">Why is multicollinearity bad in layman’s terms</a></li>
+                    </ol>
+                    <h2>Preparing data for ML: Handling Text and Categorical Attributes</h2>
+                    <p>A lot of machine learning algorithms prefer to work with numbers. In order to prepare our data for the ML algorithm we would typically have to transform our text and categorical variables. Luckily for us, Scikit learn provides a few preprocessing options to encode or transform our categorical variables. One such option is <a href="https://machinelearningmastery.com/how-to-one-hot-encode-sequence-data-in-python/">one-hot encode</a>.</p>
+                    <h2>Feature Scaling</h2>
+                    <p>Real world data often contains features that vary greatly in both magnitude, units and range. In many cases you may need to get all your data on the same scale because having features with wildly different scale may create a scenario where variables do not give equal contribution to the analysis adversely affecting the model’s performance. In such scenarios we may want to rescale our variables to have equal range and/or variance.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="https://www.listendata.com/2017/04/how-to-standardize-variable-in-regression.html">When and why to standardize a variable</a></li>
+                        <li><a href="https://sebastianraschka.com/Articles/2014_about_feature_scaling.html">About feature scaling and normalization and the effect of standardization for machine learning algorithms</a></li>
+                    </ol>
+                    <h2>Splitting training and test data</h2>
+                    <p>After all the necessary preprocessing steps we start working towards actually building our machine learning model starting off by splitting our data into training and test data. As explained previously, the training data contains data that will be used to train our model. As a rule of thumb we often use the 80/20 split method meaning we split 80% of data to training data and 20 to test data. This follows the Pareto principle stating that in wealth distribution and explaining other human, machine and environmental phenomena 80% of effects from from 20% of causes.</p>
+                    <p>The caveats of this train/split method however is that it is possible to split our data in such away that we one subset of our data only contains for example data relevant to only a specific region which could lead to our model <a class="tooltip" data-title="Overfitting refers to a model that models the training data too well. Overfitting happens when a model learns the detail and noise in the training data to the extent that it negatively impacts the performance of the model on new data">overfitting</a> for this subset.</p>
+                    <h4><strong>Additional Reading:</strong></h4>
+                    <a href="https://data-flair.training/blogs/train-test-set-in-python-ml/">Train and Test set in Python Machine Learning- How to Split</a>
+                    <h2>K-Fold Cross Validation</h2>
+                    <p>To counteract this we may opt to use cross validation. While this method is similar to the train/split method the major difference lies in the fact that is is applies to more subsets. This means that instead of splitting the data once, we split our data into k number of subsets and train on k-1 one of those subsets. We would then hold our the last subset for testing purposes.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <a href="https://machinelearningmastery.com/k-fold-cross-validation/">A gentle introduction to k-fold cross-validation</a>
+                    <h2>Building the baseline Model</h2>
+                    <p>In machine learning a baseline is a very basic model or a method that uses heuristics, randomness or commonsense to create predictions for our dataset. This baseline model will give you a good understanding of any unforeseen challenges you may encounter when building your model while also allowing you to iterate very quickly and wasting less time.</p>
+                    <p>You will also need to determine the metric you will use to measure the performance of not just the baseline but subsequent models you will build after your baseline.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <ol>
+                        <li><a href="https://blog.insightdatascience.com/always-start-with-a-stupid-model-no-exceptions-3a22314b9aaa?gi=98053cf1601b">Always start with a stupid model, no exceptions</a></li>
+                        <li><a href="https://machinelearningmastery.com/implement-baseline-machine-learning-algorithms-scratch-python/">How to Implement baseline Machine Learning algorithms from scratch with Python</a></li>
+                    </ol>
+                    <h2>Choosing the performance metric</h2>
+                    <p>One acceptable view is choosing a <a class="tooltip" data-title="Choosing a single evaluation metric enables you to quickly evaluate your algorithm and therefore you are able to iterate faster. Using multiple evaluation metrics simply makes it harder to compare algorithms.">single evaluation metric</a> and sticking with it through your entire model building process, this enables you to quickly evaluate your algorithm allowing you to iterate faster. For our example we can opt to use the mean absolute error. Simply put this number is a calculation of the average of all absolute errors. Error in this context refers to the delta between the predicted value and actual value. We would therefore look for a model that minimizes the average errors between our predictions and actual data.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <a href="https://sciencing.com/calculate-mean-absolute-error-6426845.html">How to calculate Mean Absolute Error</a>
+                    <h2>Selecting and training our model</h2>
+                    <p>Now that you have framed the problem, acquired your data, explored it, cleaned it and carried out all the necessary transformation to prepare your data for Machine Learning algorithms the next step entails selecting and training a Machine Learning model.</p>
+                    <p>By now you probably have an idea that this is partially an art. In the sense that there is no one right model. Choosing the right model is an iterative process where you start with the most simple model and work towards complexity depending on the performance and results of each model. Sometimes the best solutions come with simplicity and sometimes you may have to sacrifice some performance for speed and practicality especially in cases where more complexity only delivers very marginal improvements that are take too long to implement and are expensive on your computational resources.</p>
+                    <h2>Fine tuning and evaluation</h2>
+                    <p>With each iteration it is pivotal to fine tune your model to ensure that you are selecting the best possible <a class="tooltip" data-title="a hyperparameter is a parameter whose value is set before the learning process begins">hyperparameters</a>, you can think of hyperparameters as the model settings. These settings are often tuned using GridSearch or Random Search. Each of these helps you find the best combination of features to improve your model’s performance.</p>
+                    <h4><strong>Additional Reading: </strong></h4>
+                    <a href="https://www.kaggle.com/willkoehrsen/intro-to-model-tuning-grid-and-random-search">Introduction: Hyperparameter Tuning using Grid and Random Search</a>
+					<div class="lavenderBox">
+						<div class="header">Other Machine Learning Chapters</div>
+						<div class="subtitle linklist"><a href="#">The</a> <a href="#">Gradient</a> <a href="#">Boost</a> </div>
+						<div class="linklist">
+							<a href="#">What is Machine Learning</a> <a href="#">Linear Regression</a> <a href="#">Multiple Linear Regression</a> <a href="#">Logistic Regression</a><a href="#">Yelp Regression Project</a> <a href="#">K-Nearest Neighbours</a> <a href="#">Decision Trees</a> <a href="#">Clustering: K-Means</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"><\/script>')</script>
+        <script src="{% static 'script.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,389 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="{% static 'img/favicon-large.png' %}" type="image/png">
+	<title>Gradient Boost: Courses</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'third/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/linericon/style.css' %}">
+	<link rel="stylesheet" href="{% static 'third/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/owl-carousel/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/lightbox/simpleLightbox.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/nice-select/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'third/vendors/animate-css/animate.css' %}">
+	<!-- main css -->
+	<link rel="stylesheet" href="{% static 'third/css/style.css' %}">
+</head>
+
+<body>
+
+    <!--================ Start Header Menu Area =================-->
+    <header class="header_area">
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-sm-6 col-4 header-top-left">
+                        <a href=#>
+                            <span class="lnr lnr-envelope"></span>
+                            <span class="text">
+                                <span class="text">emmanuel@thegradientboost.com</span>
+                            </span>
+                        </a>
+                    </div>
+<!--                    <div class="col-lg-6 col-sm-6 col-8 header-top-right">-->
+<!--                        <a href="{% url 'signup' %}" class="text-uppercase">Signup</a>-->
+<!--                        <a href="{% url 'login' %}" class="text-uppercase">Login</a>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="main_menu">
+
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="https://techmentor.typeform.com/to/SSJKSc">Interested in becoming a mentor?</a></li> <!--{url 'about'}-->
+{#                            <li class="nav-item"><a class="nav-link" href="{% url 'course_details' %}"> About the Course</a></li>#}
+                            <li class="nav-item"><a class="nav-link" href="https://medium.com/gradientboost"> Blog</a></li>
+<!--							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>-->
+						</ul>
+					</div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--================ End Header Menu Area =================-->
+
+    <!--================Home Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="banner_content text-center">
+                            <h2>Courses</h2>
+                            <p>In the history of modern astronomy, there is probably no one greater leap forward than
+                                the
+                                building and launch of the space telescope known as the Hubble.</p>
+                            <div class="page_link">
+                                <a href="{% url 'home' %}">Home</a>
+<!--                                <a href=#>Courses</a>-->
+                                <a href="{% url 'course_details' %}">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================ Start Course Details Area =================-->
+    <section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 course_details_left">
+                    <div class="main_image">
+                        <img class="img-fluid" src="img/courses/course-details.jpg" alt="">
+                    </div>
+                    <div class="content_wrapper">
+                        <h4 class="title">Objectives</h4>
+                        <div class="content">
+                            Before entering a new field it is important to understanding the fundamentals. For this course we decided to focus heavily on statistics to help you start building analytical tests such as A/B testing, odds ratio and t-tests and to build an intuitive understanding of machine learning algorithms.
+                            We also thought it necessary to introduce you to SQL to better understand how to both build build and query data from relational databases. A lot of data-scientists we spoke to cited this as a very important fundamental skill that is used very often in the field.
+                            While Python and R are constantly cited as important programming languages throughout the data analyst and data science process, we place more emphasis on logic and helping students understand not just how to do something, but the why and understanding the logic behind a given solution.
+                            <br>
+                            <br>
+                            This program is designed for students who have limited to no experience with programming and statistics, while intense, it is achievable if you invest enough time and fully leverage your mentor's expertise. You will have weekly tutorial with a mentor to ask questions based on what you have completed in a given week and access to proprietary study material. We spent quite some time trying to explain things in the most simplest and intuitive ways possible.
+                            We have designed this course to be valuable to students who want to start the process of pursuing a career in data analysis, data science and data engineering, people who want to build a high level understanding of the data science process and develop some level of practical understanding of what data scientists/analysts/engineers do and for life long learners who may have an interesting in this field for whatever reason.
+                            Lastly, in order to help you communicate technical projects to a non technical audience, you will be required to explain your project to a panel or mentors and fellow students. Through this process you will be expected to communicate your work, along with the expected impact and recommendations derived from your findings.
+                        </div>
+
+                        <h4 class="title">Eligibility</h4>
+                        <div class="content">
+                            The only criteria for pursuing this course is that you must have access to WiFi and a working laptop.
+                        </div>
+
+                        <h4 class="title">Course Outline</h4>
+                        <div class="content">
+                            <ul class="course_list">
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to Statistics for Data Science</p>
+                                        <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#statsModal">View Details</a>
+                                </li>
+                                <!-- stats modal -->
+                                <div class="modal fade" id="statsModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to Statistics for Data Science
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                In the statistics part of the curriculum you will cover topics such as rules of probability, different types of probability distributions and inferential statistics to name a few.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- python modal -->
+                                <div class="modal fade" id="pythonModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to Python for programming
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                The focus on this part of the curriculum is to help you build an understanding of core programming principles using Python. Topics that are covered will include control flows and conditionals, file handling, Pandas and NumPy and some Object Oriented Programming principles.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- sql modal -->
+                                <div class="modal fade" id="sqlModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to SQL
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                The SQL part of the curriculum focuses on giving you a practical understanding of learning how to communicate and manipulate relational databases using SQL.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- data visualization -->
+                                <div class="modal fade" id="datavizModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to Data Visualization
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                Through this part of the curriculum we will focus on giving you a practical understanding of using Python libraries such as Matplotlib as Seaborn to create interesting visualizations to tell stories using datasets.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- linear algebra -->
+                                <div class="modal fade" id="linearModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to Linear Algebra for Data Science
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                In this module we will focus on getting a better understanding of vectors, linear combinations and spans of vectors, linear dependence and matrix vector products to name a few topics.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- machine learning -->
+                                <div class="modal fade" id="mlModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Introduction to Machine Learning
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                For the machine learning course the core focus will be on getting both an intuitive and practical understanding of regression and classification algorithms ranging from linear regression to decision trees. We will also delve into a bit more detail about the bias variance trade off. You will go through interactive Jupyter Notebooks to understand how to build these algorithms from scratch without using the Sci-Kit Learn library.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- first project -->
+                                <div class="modal fade" id="firstModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Building your first project
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                Applying Python and SQL concepts you have learnt practically will help cement knowledge you gained from the curriculum. You will be required to build a pre-defined project and present this to both your mentors and peers. In addition to helping you build your technical skills, problem solving capacity and ability to understand a business problem, this will help you develop your communication skills and ability to present technical findings to an audience with varying degrees of technical expertise.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- second project -->
+                                <div class="modal fade" id="secondModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Building your second project
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                By now you should be ready to use the skills you have learnt to create a business case study, define a clear and quantifiable business problem and then proceed to use the skills you have acquired to build a solution, measure its potential benefits and make suggestions. The best thing about projects is that this is your chance to shine by going the extra mile to leverage the assistance of your mentors and The Gradient Boost community to execute a jawdropping project.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- group -->
+                                <div class="modal fade" id="groupModal" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">
+                                                    Case Study and Group Project
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                Being able to break down a case study to smaller tasks, assigning them to different team members and collaborating to build a practical solution is a core skill you will acquire through this project. After you decide on a business problem, we will have discussions to understand what tasks will be required to solve this problem and then as a team you will assign tasks to different team members. This process will add more accountability to each person in the team and help you better understand how to navigate different work styles.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- End ---------------------------->
+
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to Python and Pandas</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#pythonModal">View Details</a>
+                                </li>
+                                <!-- Modal -->
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to SQL</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#sqlModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Using data to tell a story/ Data Visualization</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#datavizModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to Linear Algebra for Data Science</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#linearModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Introduction to Machine Learning</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#mlModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Building your first project</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#firstModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Building your second project</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#secondModal">View Details</a>
+                                </li>
+                                <li class="justify-content-between d-flex">
+                                    <p>Case Study and Group Project</p>
+                                    <a class="primary-btn text-uppercase" data-toggle="modal" data-target="#groupModal">View Details</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 right-contents">
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Lead Mentor</p>
+                                <span class="or">Name:</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Course Fee </p>
+                                <span>$350</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Available Seats </p>
+                                <span>200</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" href="#">
+                                <p>Duration </p>
+                                <span>3 Months</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="https://techmentor.typeform.com/to/PpUG1P" class="primary-btn text-uppercase enroll">Enroll Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ End Course Details Area =================-->
+
+    <!--================ Start footer Area  =================-->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row footer-bottom d-flex justify-content-between">
+                <p class="col-lg-8 col-sm-12 footer-text m-0 text-white"><strong>Built by Hooros Digital</strong> GradientBoost &copy; Copyright 2020</p>
+                <div class="col-lg-4 col-sm-12 footer-social">
+					<a href="https://www.facebook.com/thegradientboost/"><i class="fa fa-facebook"></i></a>
+					<a href="https://twitter.com/gradient_the"><i class="fa fa-twitter"></i></a>
+					<a href="https://www.linkedin.com/company/37551624/"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--================ End footer Area  =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="{% static 'third/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'third/js/popper.js' %}"></script>
+	<script src="{% static 'third/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'third/js/stellar.js' %}"></script>
+	<script src="{% static 'third/js/countdown.js' %}"></script>
+	<script src="{% static 'third/vendors/nice-select/js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'third/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'third/js/owl-carousel-thumb.min.js' %}"></script>
+	<script src="{% static 'third/js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'third/vendors/counter-up/jquery.counterup.js' %}"></script>
+	<script src="{% static 'third/js/mail-script.js' %}"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="{% static 'third/js/gmaps.min.js' %}"></script>
+	<script src="{% static 'third/js/theme.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            var url = $("#videoContainer").attr('src');
+            $("#myModal").on('hide.bs.modal', function(){
+            $("#videoContainer").attr('src', '');
+            });
+            $("#myModal").on('show.bs.modal', function(){
+            $("#videoContainer").attr('src', url);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

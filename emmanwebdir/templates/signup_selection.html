@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 style = "background: linear-gradient(to right, black , yellow);-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 3vw;">Kick start your career with Gradient Boost</h2>
+<p style = "padding-top: 50px;"><bold>Select the type of account you would like to create</bold></p>
+<div style="padding-top: 50px;">
+  <a href="{% url 'student_signup' %}" class="btn btn-student btn-lg" role="button" style = "-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 2vw;">I'm a student</a>
+  <a href="{% url 'teacher_signup' %}" class="btn btn-teacher btn-lg" role="button" style = "-webkit-background-clip: text;-webkit-text-fill-color: transparent;font-size: 2vw;">I'm a mentor</a>
+</div>
+{% endblock %}

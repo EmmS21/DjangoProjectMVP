@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Gradient Boost</title>
+	<link rel="stylesheet" href="{% static 'second/css/app/book.css' %}">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdn.jsdelivr.net/npm/scrollwatch@2.0.1/dist/ScrollWatch-2.0.1.min.js"></script>
+	<script src="{% static 'second/js/app/book.js' %}" defer></script>
+</head>
+</br>
+<div data-scroll-watch><center><img src="{% static 'third/img/logo.png' %}" width="50%"></center></br></br>We have reproduced these notes from the books: <b><i>Think Stats: Probability and Statistics for Programmers</i></b> and <b><i>OpenIntro Statistics</i></b>. We have added some annotations to give you more context and make concepts more relatable. We have also included modals that you can interact with to show you the Python equivalent for certain functions. Enjoy your learning!</div></br></br></br></br>
+</br></br><div data-scroll-watch><a href="{% url 'students:monty_hall' %}" class="btn btn-primary btn-lg">Let's have a look at the Monty Hall problem</a></div></br></br>
+</br></br><div data-scroll-watch><a id="one"></a></div></br></br>
+</br></br><div data-scroll-watch><h2>More on Conditional Probability</h2></div></br></br>
+</br></br><div data-scroll-watch>If two events are mutually exclusive, that means that only one of them can happen, so the conditional probabilities are 0,as these two events cannot occur at the same time:</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mathbf{P\left ( A | B \right )} = P\left (B|A \right ) = 0" border="0"/></div></br></br>
+</br></br><div data-scroll-watch>In this case, this is how we would compute the probability of either event:</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mathbf{P(A or B)} = P(A) + P(B)" border="0"/></div></br></br>
+</br></br><div data-scroll-watch>But remember that this only applies if the events are mutually exclusive. In general the probability of A or B or both is:</div></br></br>
+</br></br><div data-scroll-watch><img src="http://latex.codecogs.com/gif.latex?\mathbf{P(A or B)} = P(A) + P(B) - P(A and B)" border="0"/></div></br></br>
+</br></br><div data-scroll-watch>The reason we have to subtract off P(A and B) is that otherwise it gets counted twice. For example, if I flip two coins, the chance of getting at least one tails is 1/2 + 1/2 − 1/4. I have to subtract 1/4 because otherwise I am counting heads-heads twice.
+	The problem becomes even clearer if I toss three coins. </div></br></br>
+</br></br><div data-scroll-watch><a href="{% url 'students:probability_exercises_three' %}" class="btn btn-primary btn-lg">Time for some quick revision</a></div></br></br>
+</br></br><div data-scroll-watch><a id="two"></a></div></br></br>
+</br></br><div data-scroll-watch><h2>Streaks and Independent events</h2></div></br></br>
+</br></br><div data-scroll-watch>Many people do not have great intuition when it comes to random processes. Especially in instances where each iteration of these processes are independent.</div></br></br>
+</br></br><div data-scroll-watch><b>What do we mean by independent?</b>Just as variables and observations can be independent, random processes can be independent, too. By independent we mean that if we know the outcome of one, this will not provide useful information about the outcome of the other event.
+	Flipping a coin for example is an independent event, the first coin flip does not determine the outcome of any of the subsequent coin flips.</div></br></br>
+</br></br><div data-scroll-watch>If you ask people to generate “random” numbers, they tend to generate sequences that are random-looking, but actually more ordered than real random sequences.
+	Conversely, if you show them a real random sequence, they tend to see patterns where there are none.
+	A good example of this is that many people believe in streaks in sports. A ‘hot hand’ is a phrase that is often used to refer to a player that has been successful recently.</div></br></br>
+</br></br><div data-scroll-watch>Statisticians have tested these hypotheses in a number of sports, and the consistent result is that there is no such thing as a streak.
+	If you assume that each attempt is independent of previous attempts, you will see occasional long strings of successes or failures.
+	These apparent streaks are not sufficient evidence that there is any relationship between successive attempts.
+	A related phenomenon is the clustering illusion, which is the tendency to see clusters in spatial patterns that are actually random.</div></br></br>
+</br></br><div data-scroll-watch>There are conflicting views regarding this:</div></br></br>
+</br></br><div data-scroll-watch><small>”A hot streak is a commonly used term to describe a series of successful ventures—for example, winning hand after hand in poker, making multiple three-point shots in a basketball game, or winning several games in a row.
+	It is generally tied to human achievement and is steeped in folklore—particularly in sports and gambling.
+	But is it a real thing? And if so, are there characteristics involved with it that could help explain how and why they occur?</br>
+	To learn more about hot streaks in general, the researchers studied them as they occurred in three fields with measurable data: artistry, filmmaking and scientific research.
+	Artistic hot streaks, they figured, could be measured by sales price and volume.
+	Filmmaking hot streaks could be measured using box office tallies—and scientific hot streaks could be measured by looking at citation numbers.
+	The researchers obtained data from art auctions, the IMDb database and research paper databases, respectively.</br>
+	After applying a number of statistical techniques to their data, the researchers came away with several conclusions.
+	The first is that the hot streak does appear to be a real phenomenon.
+	And it happened to most of those individuals they studied—91 percent of artists who sold their work at auctions, for example, experienced a hot streak.
+	The same was true for 92 percent of movie directors and 90 percent of research scientists.
+	But they also found that it was rare for people in any of the three fields to experience more than one hot streak.
+	They also found that the span of time for hot streaks across the three fields was relatively similar—5.7 years on average for artists, 5.2 for directors and 3.7 for research scientists.</br>
+	Interestingly, the researchers found that having a hot streak did not seem to be tied to productivity—very few of those studied produced any more than they did during times when they were not experiencing a hot streak.
+	Also, hot streaks could occur at almost any time during a person's career.
+	The researchers note also that they could find no measurable data that might help explain why hot streaks occurred" - Phsy.org</small></div></br></br>
+</br></br><div data-scroll-watch>Regardless, To test whether an apparent cluster is likely to be meaningful, we can simulate the behavior of a random system to see whether it is likely to produce a similar cluster.
+	This process is called Monte Carlo simulation.</div></br></br>
+</br></br><div data-scroll-watch>Monte Carlo simulations is the use of repeated random sampling to make a number of estimations of unknown things. Here is some additional reading on Monte Carlo Simulations:</div></br></br>
+</br></br><div data-scroll-watch><a href="http://news.mit.edu/2010/exp-monte-carlo-0517">Explained: Monte Carlo Simulations</a></div></br></br>
+</br></br><div data-scroll-watch>Write a function to compute the probability of landing the number '5' 6 times consecutive times after rolling the dice 100 000 times.</div></br></br>
+</br></br><div data-scroll-watch><iframe height="400px" width="100%" src="https://repl.it/@EmmS21/MonteCarloSimulations?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe></div></br></br>
+</br></br><div data-scroll-watch><h3><a href="{% url 'students:bayesian_theory' %}" class="btn btn-primary btn-lg btn-block">Let's move on Bayes Theorem</a></h3></div></br></br>
+</html>

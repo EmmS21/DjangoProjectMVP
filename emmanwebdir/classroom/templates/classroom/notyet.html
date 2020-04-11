@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900');
+		</style>
+	</head>
+	<body style="background: #f5f8fa;font-family: 'Roboto', sans-serif;">
+    <div>
+        <center>
+            <a href="{% url 'home' %}"> <img src="{% static 'second/images/learning-logo.PNG' %}" width="40%" height="40%"></a><br><br><br><br>
+        </center>
+    </div>
+		<div style="width: 90%;max-width:600px;margin: 20px auto;background: #ffffff;">
+			<section style="margin: 0 15px;color:#425b76;">
+				<h2 style="margin: 40px 0 27px 0;text-align: center;">Thank you for signing up to Gradient Boost</h2>
+				<hr style="border:0;border-top: 3px solid rgba(66,91,118,0.3);max-width: 70%"><br><br>
+				<p style="font-size:15.5px;">Hi {{username}}, welcome to GradientBoost. Please check your email for further details. Your account will need to be activated in order for you to login to your profile page.<br><br><br>Please click the GradientBoost icon to return to the home page<br><br><br>
+                Yours Truly<br><br>
+                Emmanuel Sibanda<br><br>
+                Co-Founder of GradientBoost</p>
+			</section>
+		</div>
+	</body>
+</html>

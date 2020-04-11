@@ -1,0 +1,131 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>The Gradient Boost</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href="http://html5-templates.com/" />
+        <link rel="apple-touch-icon" href="{% static 'fifth/apple-touch-icon.png' %}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'fifth/css/style.css' %}">
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+{#        <link href="{% static 'second/css/app/app.css' %}" rel="stylesheet">#}
+        <script src="{% static 'fifth/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <link rel="canonical" href="http://html5-templates.com/" />
+        <link rel="apple-touch-icon" href="{% static 'fifth/apple-touch-icon.png' %}">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="{% static 'fifth/css/style.css' %}">
+        <script src="{% static 'fifth/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<div class="wrapAll clearfix">
+			<div class="sidebar">
+				<div class="navigation">
+					<ul>
+						<li><a href="#">Return to your profile</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Post a question on Slack</a></li>
+					</ul>
+					<h3>Feedback</h3>
+					<ul>
+						<li><a href="#">Post your feedback regarding this content</a></li>
+					</ul>
+				</div>
+
+			
+			</div>
+			<div class="mainsection">
+				<div class="headerLinks">
+					<span class="user">{{ user.first_name }}</span>
+				</div>
+				<div class="tabs clearfix">
+					<div class="tabsLeft">
+						<ul>
+							<li><a href="#" class="active">K Nearest Neighbors - Building an intuitive understanding</a></li>
+							<!--<li><a href="#">Talk</a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="article">
+                    <center><img class="logoimage" src="{% static 'fifth/img/gradientboost.png' %}"/></center>
+					<h1>Gradient Boost K-Nearest Neighbors Regression Study Guide</h1>
+					<p id="background" class="siteSub"><strong>Building an intuitive understanding of K Nearest Neighbors</strong></p>
+					<p class="roleNote">Sourced from Hands on Machine Learning with Scikit-Learn & TensorFlow Adapted for your convenience.</p>
+					<div class="contentsPanel">
+						<div class="contentsHeader">Content</div>
+						<ul>
+							<li>
+								<span>1</span><a>Introduction: What is Machine Learning</a>
+								<ul>
+									<li><span>1.1</span><a href="#background">Background</a> </li>
+									<li><span>1.2</span><a href="#practical">Practical Scenario</a> </li>
+									<li><span>1.3</span><a href="#usecases">Machine Learning use cases</a></li>
+									<li><span>1.4</span><a href="#superun">Supervised versus Unsupervised Learning</a></li>
+									<li><span>1.5</span><a href="#batchonline">Batch versus Online Learning</a></li>
+									<li><span>1.6</span><a href="#instance">Instance based versus Model based learning</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h2 id="practical">Background</h2>
+                    <p>K-Nearest Neighbors is one of the most basic classification algorithms in Machine Learning that makes no underlying assumptions about the distribution of data. As the name implies K Nearest Neighbors makes predictions through a majority vote using the most similar K instances/ neighbors of a given data point.</p>
+                    <p>We refer to K-NN as a non-parametric algorithm, meaning that it makes no assumptions about the data. It also does not learn from the training set. This means that there is no explicit training phase before the classification process. We therefore start making classifications immediately once we have our data. Other non -parametric algorithms include Decision Trees and Support Vector Machines.</p>
+                    <p>The downside to this is that we need to keep our entire training set in memory making k-NN more suited for smaller datasets that do not have too many features.</p>
+
+                    <h2>Use cases</h2>
+                    <br>
+                    <p>Can you picture a scenario where k-NN might be an ideal algorithm for a Machine Learning problem. Think about shopping on Amazon, when you like a particular product you will be recommended with other similar items based on your selection. The k-NN algorithm in this instance would compare the set of users who like each item and then proceed to look for similarity.</p>
+                    <p>In order to determine which of the K instances are most similar in a dataset a distance measure is used. This could either be the Euclidean Distance (the most popular), Hamming Distance, Manhattan Distance, Tanimoto Distance, Jaccard Distamce, Mahalanbobis distance, Cosine distance and  Minkowski Distance.</p>
+                    <p>Since Euclidean distance is the most commonly used distance metric in k-NN let us define the Euclidean distance further.</p>
+
+                    <h2>Euclidean Distance</h2></br>
+                    <p>To put it simply, the Euclidean distance between objects is the shortest distance that you would expect to find between two points an N dimensional space that is also referred to as a Euclidean space.N, in this scenario could be any number A Euclidean space could mean several things ranging from  Nn a flat space. In practical terms.</p>
+                    <img class="logoimage" src="{% static 'second/images/learningmaterial/euclidean.png' %}"/>
+
+                    <h2>Let's look at a practical example</h2>
+                    <p>Let us try and understand this formula better using a practical example:</p></br>
+                    <center><a href="{% url 'students:k_nearest_practical' %}" class="btn btn-info btn-lg">Let’s jump to our Notebook</a></center>
+					<div class="lavenderBox">
+						<div class="header">Other Machine Learning Chapters</div>
+						<div class="subtitle linklist"><a href="#">The</a> <a href="#">Gradient</a> <a href="#">Boost</a> </div>
+						<div class="linklist">
+							<a href="{% url 'students:what_is_machine_learning' %}">What is Machine Learning</a>
+                            <a href="{% url 'students:linear_regression' %}">Linear Regression</a>
+                            <a href="{% url 'students:building_end_to_end' %}">End to End Machine Learning</a>
+                            <a href="#">Multiple Linear Regression</a>
+                            <a href="{% url 'students:log_reg' %}">Logistic Regression From Scratch</a>
+                            <a href="#">Yelp Regression Project</a>
+                            <a href="{% url 'students:k_nearest_practical' %}">K-Nearest Neighbours Practical</a>
+                            <a href="#">Decision Trees</a>
+                            <a href="#">Clustering: K-Means</a>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"><\/script>')</script>
+        <script src="{% static 'script.js' %}"></script>
+        <script>
+            $(document).ready(function() {
+                $('#modal_link').on("click", function() {
+                    $('#Modal').modal('show');
+                    });
+                });
+        </script>
+    </body>
+</html>

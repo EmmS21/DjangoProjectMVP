@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>Gradient Boost: List of Students</title>
+      <link href="//code.ionicframework.com/1.0.0-beta.11/css/ionic.css" rel="stylesheet">
+      <link href="{% static 'fourth/css/app.css' %}" rel="stylesheet">
+{#    <script src="//code.ionicframework.com/1.0.0-beta.11/js/ionic.bundle.js"></script>#}
+  </head>
+
+  <body ng-app="ionicApp">
+  <ion-view class="view" >
+      <center><img src="{% static 'second/images/learning-logo.PNG' %}" width="20%" height="40%" href="{% url 'teachers:app-instructor-dashboard' %}"></center>
+      <div id="search-box" class="list">
+          <h1>List of Students</h1>
+      </div>
+            <a href="{% url 'teachers:app-instructor-dashboard' %}">Back to Dashboard</a>
+          <ion-list id="student_list">
+              <ion-item>
+              <nav id="access" role="navigation">
+                  <div class="menu-header-menu-container">
+                  <div class="box">
+                      <ul id="menu-header-menu">
+                          {% for user in students %}
+                              <li a href=""><a>{{ user.first_name }} {{ user.last_name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+                  </div>
+              </nav>
+              </ion-item>
+          </ion-list>
+  </ion-view>
+  <footer class="footer">
+      <strong>Learning</strong> v1.1.0 &copy; Copyright 2015
+  </footer>
+  <script src="{% static 'fourth/js/search.js' %}"></script>
+  </body>
+
+</html>
+{##}
+{#<div>#}
+{#    <ul class="user-list" id="mentors">#}
+{#        {% for user in mentors %}#}
+{#            <li>{{ user.first_name }} {{ user.last_name }}</li><br/>#}
+{#            <li>{{ mentor.linkedin }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#</div>#}
+
+{#     {% for user in mentors %}#}
+{#            {{ user.first_name }} {{ user.last_name }}#}
+{#            {% endfor %}#}

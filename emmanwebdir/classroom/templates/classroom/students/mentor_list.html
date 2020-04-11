@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="//code.ionicframework.com/1.0.0-beta.11/css/ionic.css" rel="stylesheet">
+    <link href="{% static 'fourth/css/app.css' %}" rel="stylesheet">
+{#    <script src="//code.ionicframework.com/1.0.0-beta.11/js/ionic.bundle.js"></script>#}
+  </head>
+
+  <body ng-app="ionicApp">
+  <ion-view class="view" >
+      <center><img src="{% static 'second/images/learning-logo.PNG' %}" width="20%" height="40%" href="{% url 'students:app-student-dashboard' %}"></center>
+      <div id="search-box" class="list">
+          <h1>List of Mentors</h1>
+      </div>
+            <a href="{% url 'students:app-student-dashboard' %}">Back to Dashboard</a>
+          <ion-list id="mentor_list">
+              <ion-item>
+              <nav id="access" role="navigation">
+                  <div class="menu-header-menu-container">
+                  <div class="box">
+                      <ul id="menu-header-menu">
+                          {% for user in mentors %}
+                              <li a href=""><a href="{{ user.mentor.linkedin }}">{{ user.first_name }} {{ user.last_name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+                  </div>
+              </nav>
+              </ion-item>
+          </ion-list>
+  </ion-view>
+  <footer class="footer">
+      <strong>Learning</strong> v1.1.0 &copy; Copyright 2015
+  </footer>
+  <script src="{% static 'fourth/js/search.js' %}"></script>
+  </body>
+
+</html>
